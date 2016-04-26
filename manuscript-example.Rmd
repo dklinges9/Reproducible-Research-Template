@@ -1,0 +1,34 @@
+---
+title: "Example Manuscript"
+author: "Peter Economist, Paul Economist, Mary Economist"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+output: 
+  pdf_document:
+    template: simple.latex
+documentclass: ajae
+bibliography: bibliography.bib
+---
+
+<!--
+There are many pre-prepared latex document classes that you have to do zero work to use. See 
+
+http://tex.stackexchange.com/questions/238224/comprehensive-overview-of-the-existing-latex-classes-or-how-to-choose-the-right
+
+for many examples. Notice this template is in the style of the American Journal of Agricultural Economics, which is listed in the 'economic' package in the link above. 
+
+Students will want to try, 'uiucthesis' as the documentclass option.
+-->
+
+
+```{r, echo=FALSE}
+load('analysis-output/results.Rda')
+```
+
+
+# Introduction 
+
+This repository contains a template for a reproducable research project. The fundamental idea of reproducable research is that the steps that take your research from raw data to manuscript, thesis, or report should be fully automated. This way, your work can be checked by your advisor, mentors, collaborators, others working in your area, journal reviewers, and your future self. The last being the most important. 
+
+Further reading [@akerlof1970vthe]
+
+# References 
