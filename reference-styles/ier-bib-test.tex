@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{url}
+\usepackage{natbib}
+
+\title{Testing the Bib\TeX{} style for the
+   \emph{International Economic Review} (IER)}
+
+\author{Arne Henningsen}
+
+\begin{document}
+\maketitle
+
+\textbf{Note:}
+Only the style of the list of references should be according
+to the guidelines of the \emph{International Economic Review}.%
+\footnote{%
+\url{http://www.econ.upenn.edu/Centers/iereview/submissionsguidelines.htm}
+}
+There is currently no \LaTeX{} class or template for the style
+of the paper itself.
+
+
+\nocite{*}
+\bibliographystyle{ier}
+\bibliography{ier-ex}
+\end{document}

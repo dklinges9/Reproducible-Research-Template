@@ -1,0 +1,151 @@
+\documentclass{erae}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{csquotes}
+\MakeInnerQuote{"}
+
+\usepackage{textcomp}
+\usepackage{multido}
+
+\usepackage{hyperref}
+\hypersetup{%
+   colorlinks = {true},
+   urlcolor = {blue},
+   linkcolor = {black},
+   citecolor = {black},
+   pdfauthor = {Arne Henningsen},
+   pdftitle = {Testing LaTeX class and BibTeX style for the
+      European Review of Agricultural Economics (AJAE)},
+   pdfkeywords = {ERAE, BibTeX, LaTeX}
+}
+
+\usepackage{multido}
+
+\title{Testing \LaTeX{} class and Bib\TeX{} style for the
+   `European Review of Agricultural Economics' (ERAE)}
+\keywords{ERAE, BibTeX, LaTeX}
+\jelclass{A1, B2, C3}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\multido{}{15}{This is an abstract. }
+\end{abstract}
+
+\section{Introduction}
+\multido{}{7}{This is an introduction. }
+
+Footnotes should appear at the end of the page in which they are inserted.%
+\footnote{
+\multido{}{10}{This is a footnote. }
+}
+"Single quotation marks" can be conveniently inserted using
+the "csquotes" package:
+add the lines\\
+\verb!\usepackage{csquotes}!\\
+\verb!\MakeInnerQuote{"}!\\
+to the preamble of your \LaTeX{} file and use the inch symbol~(\verb!"!)
+for quotation marks.%
+\footnote{%
+Of course, you can also define another symbol in the command
+\texttt{\textbackslash{}MakeInnerQuote},
+e.g.\ the degree sign~($^{\circ}$).
+}
+Collect tables and figures at the end of the manuscript
+(see figure~\ref{fig:dummy} and table~\ref{tab:citations}).
+
+\begin{figure}[htbp]
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Dummy figure}
+\label{fig:dummy}
+\end{figure}
+
+\begin{figure}[htbp]
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure, too.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Figure with \multido{}{40}{very } long title}
+\label{fig:long-title}
+\end{figure}
+
+\section{Manuscript Formatting}
+Instructions to authors including formatting guidelines are available at
+\url{http://www.oxfordjournals.org/erae/for_authors/index.html}.
+All references used as examples in these guidelines are shown in this document
+to demonstrate that the ERAE Bib\TeX{} style complies with these guidelines.
+Please report any problems at
+\url{http://sourceforge.net/projects/economtex/}.
+
+
+\section{Citations}
+\subsection{Citations in Text}
+\citet{Monier98} say A, \citet{Steenkamp97} says B,
+\citet{Swinnen97} says C, and \citet{Zeller97} say D.
+An overview is available in table~\ref{tab:citations}.
+
+\begin{table}[htbp]
+\caption{Citations}
+\label{tab:citations}
+\begin{tabular}{lc}
+\hline
+Author(s) & Statement\\
+\hline
+\citet{Monier98} & A\\
+\citet{Steenkamp97} & B\\
+\citet{Swinnen97} & C\\
+\citet{Zeller97} & D\\
+\hline
+\end{tabular}
+\medskip \\
+Note: Avoid vertical lines.
+\end{table}
+
+
+\subsection{Citations in Parenthesis}
+A equals B \citep{Monier98}, B equals C \citep{Steenkamp97},
+C equals D \citep{Swinnen97}, and D equals A \citep{Zeller97}.
+Hence, A, B, C, and D are all equal
+\citep{Monier98, Steenkamp97, Swinnen97, Zeller97}.
+
+\subsection{Citations with Page Numbers}
+Citations with page numbers can be coveniently inserted using the commands
+\texttt{$\backslash$citetPage} and \texttt{$\backslash$citepPage}.
+
+\citetPage{123}{Monier98} say A, \citetPage{234}{Steenkamp97} says B,
+\citetPage{345}{Swinnen97} says C, and \citetPage{456}{Zeller97} say D.
+A equals B \citepPage{123}{Monier98}, B equals C \citepPage{234}{Steenkamp97},
+C equals D \citepPage{345}{Swinnen97}, and D equals A \citepPage{456}{Zeller97}.
+
+
+\section{Equations}
+All displayed equations should be centered
+and numbered consecutively (on the right).
+\begin{equation}
+y = a + X b
+\end{equation}
+where $a$ is a scalar,
+$y$ and $b$ are vectors,
+and $X$ is a matrix.
+Of course, you may also use Greek symbols.
+\begin{equation}
+\theta = \alpha + \Psi \beta
+\end{equation}
+where $\alpha$ is a scalar,
+$\theta$ and $\beta$ are vectors,
+and $\Psi$ is a matrix.
+
+\clearpage
+\nocite{*}
+
+\bibliographystyle{erae}
+\bibliography{erae-ex}
+
+\end{document}

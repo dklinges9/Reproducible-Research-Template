@@ -1,0 +1,45 @@
+\documentclass{article}
+% -*-latex-*-
+% Document name: /usr/local/lib/tex/bibtex/xampl.ltx
+% Creator: Nelson H. F. Beebe [beebe@alfred.math.utah.edu]
+% Creation Date: Mon Jun  8 08:42:49 1992
+% Modified by Arne Henningsen [arne (dot) henningsen (at) gmail (dot) com]
+% on 2007/01/23 (LaTeX 2.09 -> LaTeX2e)
+
+%\def\mode{aertt}
+%\def\mode{aer}
+\def\mode{cje}
+
+\usepackage{hyperref}
+\usepackage{harvard}
+\usepackage{\mode}
+
+\author{A. U. Thor}
+
+\date{}
+
+\title{Bibliography Style: {\tt {\mode}}}
+
+\pagestyle{myheadings}
+
+\markboth{Bibliography Style: {\tt {\mode}}}{Bibliography Style: {\tt {\mode}}}
+
+\begin{document}
+
+  \bibliographystyle{\mode}
+
+  \maketitle
+
+The old \verb|\cite| gives \cite{ww} and \cite{ww,waters}
+
+\verb|\citeasnoun| gives \citeasnoun{ww}
+
+\verb|\citeyear| gives \citeyear{ww} and \citeyear{ww,waters}
+
+\verb|\citename| gives \citename{ww}
+
+  \nocite{*}
+
+  \bibliography{aer-cje-ex}
+
+\end{document}

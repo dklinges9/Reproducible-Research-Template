@@ -1,0 +1,183 @@
+\documentclass[endfloat]{ecca}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{csquotes}
+\MakeInnerQuote{"}
+
+\usepackage{hyperref}
+\hypersetup{%
+   colorlinks = {true},
+   urlcolor = {blue},
+   linkcolor = {black},
+   citecolor = {black},
+   pdfauthor = {Arne Henningsen},
+   pdftitle = {Testing LaTeX class and BibTeX style for the
+      Journal Economica (ECCA)},
+   pdfkeywords = {Economica, BibTeX, LaTeX}
+}
+
+\usepackage{multido}
+
+\title{Testing \LaTeX{} class and Bib\TeX{} style for the
+   Journal ``Economica'' (ECCA)}
+\author{Arne Henningsen \and{} Jim Nobody}
+\keywords{Economica, BibTeX, LaTeX}
+\jelclass{A1, B2, C3}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\multido{}{15}{This is an abstract. }
+\end{abstract}
+
+\section*{Introduction}
+
+The first section header should not be numbered.
+Hence, use the starred \texttt{\textbackslash{}section} command
+for the header of this section,
+i.e.\ \texttt{\textbackslash{}section$^*$\{Introduction\}}.
+Type all (foot)notes at the end of the paper.%
+\footnote{
+\multido{}{5}{This is automatically done with the "endnote" package. }
+} 
+Place (long) tables and figures at the end of the paper
+(see figure~\ref{fig:dummy} and table~\ref{tab:citations}).
+You can use the class option "\texttt{endfloat}" to move
+all float environments (figures and tables)
+to the end of the output file,
+i.e. use \texttt{\textbackslash{}documentclass[endfloat]\{ecca\}}.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure.
+   \vspace{0.2 \textwidth}
+}}
+\medskip\\
+Note: Do not forget to center your figures,
+i.e.\ use command \texttt{\textbackslash{}centering}.
+\caption{Dummy figure}
+\label{fig:dummy}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure, too.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Figure with \multido{}{40}{very } long title}
+\label{fig:long-title}
+\end{figure}
+
+
+\section{Manuscript Formatting}
+The manuscript formatting instructions are available at
+\url{http://www.blackwellpublishing.com/ecca}.
+
+
+\section{Citations}
+\subsection{Citations in Text}
+
+\citeauthor{brown00} in a paper on \ldots
+
+\citet[p.~12]{brown00} has shown that \ldots
+
+A proof is given by \citet{jones98}.
+
+An overview is available in table~\ref{tab:citations}.
+
+\begin{table}[htbp]
+\centering
+\caption{Citations}
+\label{tab:citations}
+\begin{tabular}{lll}
+\hline
+Author(s) & Year & Citation\\
+\hline
+\citeauthor{brown00} & \citeyear{brown00} & \citet{brown00}\\
+\citeauthor{jones99} & \citeyear{jones99} & \citet{jones99}\\
+\citeauthor{jones99a} & \citeyear{jones99a} & \citet{jones99a}\\
+\citeauthor{brown00a} & \citeyear{brown00a} & \citet{brown00a}\\
+\citeauthor{jones98} & \citeyear{jones98} & \citet{jones98}\\
+\citeauthor{allen95} & \citeyear{allen95} & \citet{allen95}\\
+\citeauthor{atkinson92} & \citeyear{atkinson92} & \citet{atkinson92}\\
+\citeauthor{bernanke88} & \citeyear{bernanke88} & \citet{bernanke88}\\
+\citeauthor{bernanke95} & \citeyear{bernanke95} & \citet{bernanke95}\\
+\citeauthor{bernanke96} & \citeyear{bernanke96} & \citet{bernanke96}\\
+\hline
+\end{tabular}
+\medskip \\
+Notes: Do not use vertical lines in tables;
+do not forget to center your tables,
+i.e.\ use command \texttt{\textbackslash{}centering}.
+\end{table}
+
+
+\subsection{Citations in Parenthesis}
+
+This method has been criticised \citep{jones99a, jones99, brown00a}.
+
+
+\section{Equations}
+All displayed equations should be left-justified
+and --- where necessary --- numbered consecutively (on the left).
+\begin{equation}
+y = a + X b
+\end{equation}
+where $a$ is a scalar,
+$y$ and $b$ are vectors,
+and $X$ is a matrix.
+
+Now, we have an unnumbered equation
+\begin{equation*}
+\theta = \alpha + \Psi \beta
+\end{equation*}
+where $\alpha$ is a scalar,
+$\theta$ and $\beta$ are vectors,
+and $\Psi$ is a matrix.
+
+
+\section{Quotation Marks}
+The "Economica" requires single quotes.
+You can get pretty (typographically correct) quotation marks
+by adding the commands
+\verb!\usepackage{csquotes}!
+and
+\verb!\MakeInnerQuote{"}!
+in your preamble and use the \verb!"! sign for quation marks in your text.
+
+
+\section*{Acknowledgements}
+
+The Bib\TeX{} code to replace repeated author names by multiple dashes
+in the list of references has been kindly provided by
+Joseph A.\ Wright (\url{joseph.wright@morningstar2.co.uk}).
+
+
+\listofendnotes
+
+\appendix
+
+\section{Websites of the "Economica"}
+\begin{itemize}
+\item \url{http://www.blackwellpublishing.com/ecca}
+\item \url{http://darp.lse.ac.uk/Frankweb/Economica/EconomicaHome.htm}
+\end{itemize}
+
+\section{Proofs}
+\begin{equation*}
+14 = 2 \cdot 7  = 2 ( 3 + 4 ) = 2 \cdot 3 + 2 \cdot 4 = 6 + 8 = 14
+\end{equation*}
+
+
+\nocite{*}
+
+\bibliographystyle{ecca}
+\bibliography{ecca-ex}
+
+\end{document}

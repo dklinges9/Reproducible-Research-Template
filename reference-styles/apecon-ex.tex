@@ -1,0 +1,161 @@
+\documentclass{apecon}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{csquotes}
+\MakeInnerQuote{"}
+
+\usepackage{textcomp}
+\usepackage{multido}
+
+\usepackage{hyperref}
+\hypersetup{%
+   colorlinks = {true},
+   urlcolor = {blue},
+   linkcolor = {black},
+   citecolor = {black},
+   pdfauthor = {Arne Henningsen},
+   pdftitle = {Testing LaTeX class and BibTeX style for the
+      journal Applied Economics (ApEcon)},
+   pdfkeywords = {Applied Economics, BibTeX, LaTeX}
+}
+
+\usepackage{multido}
+
+\title{Testing \LaTeX{} class and Bib\TeX{} style for the
+   journal `Applied Economics' (ApEcon)}
+
+\author{Arne Henningsen$^1$ and His Coauthor$^2$}
+
+% affiliation(s) and full address(es) of the author(s)
+\affiliation{%
+$^1$Institute of Food and Resource Economics,
+University of Copenhagen,
+Rolighedsvej~25, 1958~Frederiksberg~C, Denmark\\
+$^2$\LaTeX{} University, Nostreet~123,
+00000~Nowhere City, Noland}
+
+% running title
+\rtitle{\LaTeX{} class and Bib\TeX{} style for `Applied Economics'}
+
+% corresponding author including full address
+\cauthor{Arne Henningsen, Institute of Food and Resource Economics,
+Rolighedsvej~25, 1958~Frederiksberg~C, Denmark}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\multido{}{15}{This is an abstract. }
+\end{abstract}
+
+\section{Introduction}
+\multido{}{7}{This is an introduction. }
+
+Footnotes should appear at the end of the page in which they are inserted.%
+\footnote{
+\multido{}{10}{This is a footnote. }
+}
+"Single quotation marks" can be conveniently inserted using
+the "csquotes" package:
+add the lines\\
+\verb!\usepackage{csquotes}!\\
+\verb!\MakeInnerQuote{"}!\\
+to the preamble of your \LaTeX{} file and use the inch symbol~(\verb!"!)
+for quotation marks.%
+\footnote{%
+Of course, you can also define another symbol in the command
+\texttt{\textbackslash{}MakeInnerQuote},
+e.g.\ the degree sign~($^{\circ}$).
+}
+Collect tables and figures at the end of the manuscript
+(see figure~\ref{fig:dummy} and table~\ref{tab:citations}).
+
+\begin{figure}[htbp]
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Dummy figure}
+\label{fig:dummy}
+\end{figure}
+
+\begin{figure}[htbp]
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure, too.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Figure with \multido{}{40}{very } long title}
+\label{fig:long-title}
+\end{figure}
+
+\section{Manuscript Formatting}
+Instructions to authors including formatting guidelines are available at
+\url{http://www.tandf.co.uk/journals/journal.asp?issn=0003-6846&linktype=44}.
+All references used as examples in these guidelines are shown in this document
+to demonstrate that the Bib\TeX{} style of "Applied Economics" complies
+with these guidelines.
+Please report any problems at
+\url{http://sourceforge.net/projects/economtex/}.
+
+
+\section{Citations}
+\subsection{Citations in Text}
+\citet{smith72} says A, \citet{brown05} say B,
+\citet{smith72a} say C, and \citet{smith72b} say D.
+An overview is available in table~\ref{tab:citations}.
+
+\begin{table}[htbp]
+\caption{Citations}
+\label{tab:citations}
+\begin{tabular}{lc}
+\hline
+Author(s) & Statement\\
+\hline
+\citet{smith72} & A\\
+\citet{brown05} & B\\
+\citet{smith72a} & C\\
+\citet{smith72b} & D\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Citations in Parenthesis}
+A equals B \citep{smith72}, B equals C \citep{brown05},
+C equals D \citep{smith72a}, and D equals A \citep{smith72b}.
+Hence, A, B, C, and D are all equal
+\citep{smith72, brown05, smith72a, smith72b}.
+
+\subsection{Citations with Page Numbers}
+\citet[p.~123]{smith72} says A, \citet[p.~234]{brown05} say B,
+\citet[p.~345]{smith72a} say C, and \citet[p.~456]{smith72b} say D.
+A equals B \citep[p.~123]{smith72}, B equals C \citep[p.~234]{brown05},
+C equals D \citep[p.~345]{smith72a}, and D equals A \citep[p.~456]{smith72b}.
+
+
+\section{Equations}
+There are no instructions regarding equations.
+\begin{equation}
+y = a + X b
+\end{equation}
+where $a$ is a scalar,
+$y$ and $b$ are vectors,
+and $X$ is a matrix.
+Of course, you can also use Greek symbols.
+\begin{equation}
+\theta = \alpha + \Psi \beta
+\end{equation}
+where $\alpha$ is a scalar,
+$\theta$ and $\beta$ are vectors,
+and $\Psi$ is a matrix.
+
+\clearpage
+\nocite{*}
+
+\bibliography{apecon-ex}
+
+\end{document}

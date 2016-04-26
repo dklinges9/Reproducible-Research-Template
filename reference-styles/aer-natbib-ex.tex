@@ -1,0 +1,45 @@
+\documentclass{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{natbib}
+
+\usepackage{hyperref}
+\hypersetup{%
+   colorlinks = {true},
+   urlcolor = {blue},
+   linkcolor = {black},
+   citecolor = {black},
+   pdfauthor = {Arne Henningsen},
+   pdftitle = {Testing BibTeX style for the
+      American Economic Review (AER)},
+   pdfkeywords = {AER, BibTeX, LaTeX}
+}
+
+\title{Testing Bib\TeX{} style for the
+   ``American Economic Review'' (AER)}
+\author{Arne Henningsen}
+
+\begin{document}
+
+\maketitle
+
+\section{Citations}
+\subsection{Citations in Text}
+\citet{Black29} says A, \citet{Wold89} say B, \citet{Wold} say C,
+\citet{Wold4} say D, \citet{Wold5} say E., \citet{Brown65} says F,
+and the \citet{USDA65} says G.
+
+\subsection{Citations in Parenthesis}
+A equals B \citep{Black29}, B equals C \citep{Wold89}, C equals D \citep{Wold},
+D equals E \citep{Wold4}, E equals F \citep{Wold5}, F equals G \citep{Brown65},
+and G equals A \citep{USDA65}.
+Hence, A, B, C, D, E, F, and G are all equal
+\citep{Black29, Wold89, Wold, Wold4, Wold5, Brown65, USDA65}.
+
+\nocite{*}
+\bibliographystyle{aer}
+\bibliography{ajae-ex}
+
+\end{document}

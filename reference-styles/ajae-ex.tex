@@ -1,0 +1,145 @@
+\documentclass{ajae}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+\usepackage{hyperref}
+\hypersetup{%
+   colorlinks = {true},
+   urlcolor = {blue},
+   linkcolor = {black},
+   citecolor = {black},
+   pdfauthor = {Arne Henningsen},
+   pdftitle = {Testing LaTeX class and BibTeX style for the
+      American Journal of Agricultural Economics (AJAE)},
+   pdfkeywords = {AJAE, BibTeX, LaTeX}
+}
+
+\usepackage{multido}
+
+\title{Testing \LaTeX{} class and Bib\TeX{} style for the
+   ``American Journal of Agricultural Economics'' (AJAE)}
+\keywords{AJAE, BibTeX, LaTeX}
+\jelclass{A1, B2, C3}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\multido{}{15}{This is an abstract. }
+\end{abstract}
+
+\multido{}{7}{Do not indent the first paragraph. }
+
+\multido{}{7}{Do not use a heading for the first section. }
+
+Type all footnotes on a separate page following the article.%
+\footnote{
+\multido{}{5}{This is a footnote that looks like an endnote. } 
+} 
+Place each table and figure on a separate page at the end of the paper
+(see figure~\ref{fig:dummy} and table~\ref{tab:citations}).
+
+\begin{figure}[htbp]
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Dummy figure}
+\label{fig:dummy}
+\end{figure}
+
+\begin{figure}[htbp]
+\fbox{\parbox{0.6 \textwidth}{\centering
+   \vspace{0.2 \textwidth}
+   This is not a figure, too.
+   \vspace{0.2 \textwidth}
+}}
+\caption{Figure with \multido{}{40}{very } long title}
+\label{fig:long-title}
+\end{figure}
+
+
+\section{Manuscript Formatting}
+The manuscript formatting instructions are available at
+\url{http://ajae.aem.cornell.edu/formatting.htm}.
+A detailed reference guide is available at
+\url{http://ajae.aem.cornell.edu/documents/ReferenceGuideMarch2006.pdf}.
+All references used as examples in the reference guide are shown in this document
+to demonstrate that the AJAE Bib\TeX{} style complies with these guidelines.
+Please report any problems at
+\url{http://sourceforge.net/projects/economtex/}.
+
+
+\section{Citations}
+\subsection{Citations in Text}
+\citet{Black29} says A, \citet{Wold89} say B, \citet{Wold} say C,
+\citet{Wold4} say D, \citet{Wold5} say E., \citet{Brown65} says F,
+and the \citet{USDA65} says G.
+An overview is available in table~\ref{tab:citations}.
+
+\begin{table}[htbp]
+\caption{Citations}
+\label{tab:citations}
+\begin{tabular}{lc}
+\hline
+Author(s) & Statement\\
+\hline
+\citet{Black29} & A\\
+\citet{Wold89} & B\\
+\citet{Wold} & C\\
+\citet{Wold4} & D\\
+\citet{Wold5} & E\\
+\citet{Brown65} & F\\
+\citet{USDA65} & G \\
+\hline
+\end{tabular}
+\medskip \\
+Note: Do not use vertical lines in tables.
+\end{table}
+
+
+\subsection{Citations in Parenthesis}
+A equals B \citep{Black29}, B equals C \citep{Wold89}, C equals D \citep{Wold},
+D equals E \citep{Wold4}, E equals F \citep{Wold5}, F equals G \citep{Brown65},
+and G equals A \citep{USDA65}.
+Hence, A, B, C, D, E, F, and G are all equal
+\citep{Black29, Wold89, Wold, Wold4, Wold5, Brown65, USDA65}.
+
+%%% This is just to test the compatibility functions \citetPage and \citepPage
+% \subsection{Citations with Page Numbers}
+% \citetPage{123}{Black29} says A, \citetPage{234}{Wold89} say B,
+% \citetPage{345}{Wold} say C, and \citetPage{456}{Wold4} say D.
+% A equals B \citepPage{123}{Black29}, B equals C \citepPage{234}{Wold89},
+% C equals D \citepPage{345}{Wold}, and D equals A \citepPage{456}{Wold4}.
+
+
+\section{Equations}
+All displayed equations should be left-justified
+and numbered consecutively (on the left).
+Vectors and matrices should be in bold.
+\begin{equation}
+\veclatin{ y } = a + \matlatin{ X } \veclatin{ b }
+\end{equation}
+where $a$ is a scalar,
+$\veclatin{ y }$ and $\veclatin{ b }$ are vectors,
+and $\matlatin{ X }$ is a matrix.
+Of course, the same holds for Greek symbols.
+\begin{equation}
+\vecgreek{ \theta } = \alpha + \matgreek{ \Psi } \vecgreek{ \beta }
+\end{equation}
+where $\alpha$ is a scalar,
+$\vecgreek{ \theta }$ and $\vecgreek{ \beta }$ are vectors,
+and $\matgreek{ \Psi }$ is a matrix.
+
+\clearpage
+\listofendnotes
+
+\clearpage
+\nocite{*}
+
+\bibliographystyle{ajae}
+\bibliography{ajae-ex}
+
+\end{document}

@@ -1,0 +1,210 @@
+LaTeX and BibTeX Support for Submissions to Economics Journals
+
+
+CONTENTS
+
+As of today, following classes and styles are available:
+
+1) American Economic Review (AER)
+aer.bst: BibTeX style. It requires the style files aer.sty (in this bundle)
+   and harvard.sty (CTAN:macros/latex/contrib/harvard/)
+aertt.bst: This reproduces the incredibly crazy way the
+   AER asks for ``final'' manuscripts to look. It requires the
+   style files aertt.sty (in this bundle),
+   harvard.sty (CTAN:macros/latex/contrib/harvard/), and
+   ulem.sty (CTAN:macros/latex/contrib/misc/)
+aer.sty: LaTeX style for the AER
+aertt.sty: LaTeX style for ``final'' manuscripts submitted to the AER
+author: Peter Williams <peterw (at) archsci.arch.su.oz.au>
+aer-cje-ex.tex: example LaTeX file
+aer-cje-ex.bib: bibliography of the example file
+authors of aer-cje-ex.*: Randall M. Wigle <rwigle (at) wlu.ca>,
+   Nelson H. F. Beebe <beebe (at) alfred.math.utah.edu>, and
+   Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+aer-natbib-ex.tex: LaTeX file for testing aer.bst with the natbib package
+author of aer-natbib-ex.tex: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+
+2) Agricultural Economics (AgEcon)
+agecon.cls: LaTeX class
+agecon.bst: BibTeX style
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+3) American Journal of Agricultural Economics (AJAE)
+ajae.bst: BibTeX style
+ajae.cls: LaTeX class
+ajae-ex.tex: example LaTeX file
+ajae-ex.bib: bibliography of the example file
+authors: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+   and Karsten Heymann
+license: LPPL
+
+4) Applied Economics (ApEcon)
+apecon.cls: LaTeX class
+apecon.bst: BibTeX style
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+5) Canadian Journal of Economics (CJE)
+cje.bst: BibTeX style. It requires the style files cje.sty (in this bundle)
+   and harvard.sty (CTAN:macros/latex/contrib/harvard/)
+cje.sty: LaTeX style for the CJE
+author: Peter Williams <peterw (at) archsci.arch.su.oz.au>
+aer-cje-ex.tex: example LaTeX file
+aer-cje-ex.bib: bibliography of the example file
+authors of aer-cje-e.*: Randall M. Wigle <rwigle (at) wlu.ca>,
+   Nelson H. F. Beebe <beebe (at) alfred.math.utah.edu>, and
+   Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+
+6) Econometrica (ECTA)
+ecta.bst: BibTeX style. It requires the LaTeX style ``natbib'' (or ``chicago'')
+author: Sebastian Perez-Duarte <perez (at) ensae.fr>
+ OR
+econometrica.bst: BibTeX style. It requires the style file
+   harvard.sty (CTAN:macros/latex/contrib/harvard/)
+author: KC Border <kcb (at) hss.caltech.edu>
+ OR
+econometrica-fr.bst: BibTeX style. It requires the style file
+   harvard.sty (CTAN:macros/latex/contrib/harvard/)
+author: Guillaume Horny <horny (at) cournot.u-strasbg.fr>
+
+7) Economica (ECCA)
+ecca.bst: BibTeX style
+ecca.cls: LaTeX class
+ecca-ex.tex: example LaTeX file
+ecca-ex.bib: bibliography of the example file
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+8) European Review of Agricultural Economics (ERAE)
+erae.bst: BibTeX style
+erae.cls: LaTeX class
+erae-ex.tex: example LaTeX file
+erae-ex.bib: bibliography of the example file
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+9) International Economic Review (IER)
+ier.bst: BibTeX style
+author: Doug McKee <dmckee (at) ucla.edu>
+license: LPPL
+
+10) International Tax and Public Finance (ITAXPF)
+itaxpf.cls: LaTeX class
+itaxpf.bst: BibTeX style
+itaxpf-ex.tex: example LaTeX file
+itaxpf-ex.bib: bibliography of the example file
+itaxpf-ex-title.tex: example LaTeX file for a title page
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+11) Journal of Applied Econometrics (JAE)
+jae.bst: BibTeX Style
+author: unknown
+license: LPPL
+
+12) Journal of Political Economy (JPE)
+jpe.bst: BibTeX style
+author: Adam Seth Litwin <aslitwin (at) jhu (dot) edu>
+license: LPPL
+
+13) Journal of Rural Studies (JRurStud)
+jrurstud.cls: LaTeX class
+   (BibTeX style: "elsart-harv.bst", available at
+   http://www.elsevier.com/wps/find/authorsview.authors/elsart)
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+14) Journal of Statistical Software (JSS)
+jss2.bst: slightly modified BibTeX style that can be used together
+          with the LaTeX package "csquotes"
+
+15) Oesterreichische Gesellschaft fuer Agraroekonomie (OeGA)
+   (Austrian Association of Agricultural Economists)
+oegatb.cls: LaTeX class for short papers for publication in the "Tagungsband"
+oega.bst: BibTeX style
+oegatb-ex.tex: example file
+oegatb-ex.bib: bibliography of the example file
+oegatb-ex.png: figure included in the example file
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+16) Post-Communist Economies (PoCoEc or PCE)
+pocoec.cls: LaTeX class
+   (BibTeX style: tandfx.bst, in this package)
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+17) Regional Studies (RegStud)
+regstud.cls: LaTeX class
+regstud.bst: BibTeX style
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+18) Taylor and Francis Reference Style X
+tandfx.bst: BibTeX style for "Reference Style X" of Taylor and Francis
+
+19) World Development (WorldDev)
+worlddev.cls: LaTeX class
+worlddev.bst: BibTeX style
+author: Arne Henningsen <arne (dot) henningsen (at) gmail (dot) com>
+license: LPPL
+
+
+
+USAGE
+
+The usage of most classes and styles is explained inside these files.
+Example files are provided for a few classes and styles:
+aer-cje-ex.tex, aer-natbib-ex.tex, ajae-ex.tex, erae-ex.tex, ecca-ex.tex,
+itaxpf-ex.tex, itaxpf-ex-title.tex, oegatb-ex.tex.
+
+Most classes load the natbib package
+(see CTAN:macros/latex/contrib/natbib/)
+
+Other styles generally permit four forms of citation, which are illustrated
+below:
+   Citation Form          Result
+\cite{wealth}          (Smith 1776)  
+\citename{wealth}       Smith           
+\citeyear{wealth}       (1776)        
+\citeasnoun{wealth}     Smith (1776)  
+
+Further information might be available at
+   http://economtex.wiki.sourceforge.net/
+
+
+
+BUG REPORTS
+
+Please report any bugs and problems at
+   http://sourceforge.net/projects/economtex/
+
+
+
+MAINTAINER
+
+Arne Henningsen
+Department of Agricultural Economics
+University of Kiel
+Olshausenstr. 40
+D-24098 Kiel (Germany)
+Tel: +49-431-880 4445
+Fax: +49-431-880 1397
+http://www.arne-henningsen.name/
+
+
+
+ACKNOWLEDGEMENT
+
+I would like to thank Randall M. Wigle for maintaining these files
+from 1993 to 2006 and all authors for preparing and publishing these files.
+
+
+
+AVAILABILITY
+
+These files are currently available from
+   CTAN:biblio/bibtex/contrib/economic/
+and
+   http://sourceforge.net/projects/economtex/

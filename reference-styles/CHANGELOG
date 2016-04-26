@@ -1,0 +1,53 @@
+2009-11-18
+- the LaTeX classes for the journals "Agricultural Economics" (agecon.cls),
+  "Applied Economics" (apecon.cls), "Economica" (ecca.cls),
+  "European Review of Agricultural Economics" (erae.cls),
+  "International Tax and Public Finance" (itaxpf.cls),
+  "Journal of Rural Studies" (jrurstud.cls), "Regional Studies" (regstud.cls),
+  and "World Development" (worlddev.cls) no longer load the "csquotes" package
+- the LaTeX classes for the journals "Agricultural Economics" (agecon.cls),
+  "American Journal of Agricultural Economics" (ajae.cls)
+  "Applied Economics" (apecon.cls),
+  "European Review of Agricultural Economics" (erae.cls),
+  "Journal of Rural Studies" (jrurstud.cls), and
+  "Regional Studies" (regstud.cls) no longer load the packages
+  "fontenc" and "inputenc" so that the user can decide, which encoding
+  (s)he uses
+- the LaTeX classes for the journals
+  "International Tax and Public Finance" (itaxpf.cls),
+  "Post-Communist Economies" (pocoec.cls), and
+  "World Development" (worlddev.cls) no longer load the "fontenc" package
+- minor improvements in the LaTeX class for the
+  "American Journal of Agricultural Economics" (ajae.cls)
+- added LaTeX class for the NJF seminar 425 and hopefully also for other
+  NJF seminars
+- the BibTeX style for the"European Review of Agricultural Economics"
+  (erae.bst) shows the DOIs now (if available)
+- added example for a LaTeX document (apecon.tex) and a corresponding
+  BibTeX data base (apecon.bib) that use the LaTeX class and the BibTeX style
+  for the journal "Applied Economics"
+- added LaTeX file (ier-bib-test.tex) and BibTeX data base (ier-ex.bib)
+  to check the BibTeX style for the International Economic Review (IER)
+- some example files load the packages "inputenc" and "fontenc" now, because
+  these packages are no longer loaded by the corresponding class files
+- the package includes the compiled PDF files of most example files now
+
+2009-01-08
+- added BibTeX style for the Journal of Applied Econometrics (JAE)
+- slightly improved LaTeX class for Post-Communist economies (pocoec.cls)
+- added slightly modified BibTeX style that can be used together
+  with the LaTeX package "csquotes"
+
+2008-12-29
+- added support for Agricultural Economics (AgEcon)
+- added support for Applied Economics (ApEcon)
+- added BibTeX style for the Journal of Political Economy (JPE)
+- added support for the Journal of Rural Studies (JRurStud)
+- added support for Post-Communist Economies (PoCoEc)
+- added support for Regional Studies (RegStud)
+- added support for the Tagungsband of the Austrian Association of Agricultural
+  Economists (Oesterreichische Gesellschaft fuer Agraroekonomie, OeGA)
+- added BibTeX style for "Reference Style X" of Taylor and Francis
+- added support for World Development (WorldDev)
+- this bundle is developed on Sourceforge.net now:
+  http://sourceforge.net/projects/economtex/

@@ -1,0 +1,21 @@
+2008-12-29  economtex -- Support for Economists using LaTeX and BibTeX
+
+The "economtex" project [1,2] aims at supporting economists who use LaTeX
+and/or BibTeX. Currently, this is done in two ways:
+First, the economtex project provides LaTeX classes/styles and BibTeX styles
+for manuscripts to be submitted to economics journals.
+Second, the economtex project provides a Wiki [3] for economists to share
+information on using LaTeX in their profession.
+
+The "economtex" project has released a largely enhanced version of its
+package of LaTeX classes and BibTeX styles today [4]. This is the first release
+on Sourceforge.net. Earlier versions of this package were already available as
+"economic bundle" on CTAN [5]. The development of this package has been moved
+to Sourceforge.net a few month ago and many new LaTeX classes and BibTeX styles
+have been added. The updated package will be available also on CTAN soon.
+
+[1] http://economtex.sourceforge.net/
+[2] http://sourceforge.net/projects/economtex/
+[3] http://economtex.wiki.sourceforge.net/
+[4] http://sourceforge.net/project/platformdownload.php?group_id=240001
+[5] http://www.ctan.org/tex-archive/biblio/bibtex/contrib/economic/
