@@ -10,14 +10,19 @@ bibliography: bibliography.bib
 ---
 
 <!--
-There are many pre-prepared latex document classes that you have to do zero work to use. See 
+There are many pre-prepared latex document classes that will format your document where you have to do zero work to use. See 
 
 http://tex.stackexchange.com/questions/238224/comprehensive-overview-of-the-existing-latex-classes-or-how-to-choose-the-right
 
-for many examples. Notice this template is in the style of the American Journal of Agricultural Economics, which is listed in the 'economic' package in the link above. 
+for many examples. Notice the template in the style of the American Journal of Agricultural Economics is 'ajae', which is listed in the 'economic' package in the link above. 
 
-Students will want to try, 'uiucthesis' as the documentclass option.
+Students will also want to try, 'uiucthesis' as the documentclass option.
+
+Also, 'article' is the default class and worth using for working papers.
 -->
+
+ 
+
 
 
 ```{r, echo=FALSE}
