@@ -4,21 +4,33 @@ author: "Peter Economist, Paul Economist, Mary Economist"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 output: 
   pdf_document:
-    template: simple.latex
+    template: simple.latex 
 documentclass: ajae
 bibliography: bibliography.bib
 ---
 
 <!--
-There are many pre-prepared latex document classes that will format your document where you have to do zero work to use. See 
+There are many pre-prepared latex document classes that will format your document so that you get a beautifully formatted document for zero work. See the link below for many examples.
 
 http://tex.stackexchange.com/questions/238224/comprehensive-overview-of-the-existing-latex-classes-or-how-to-choose-the-right
 
-for many examples. Notice the template in the style of the American Journal of Agricultural Economics is 'ajae', which is listed in the 'economic' package in the link above. 
+Notice the template in the style of the American Journal of Agricultural Economics is 'ajae', which is listed in the 'economic' package in the link above. 
 
 Students will also want to try, 'uiucthesis' as the documentclass option.
 
-Also, 'article' is the default class and worth using for working papers.
+
+Also, 'article' is the default class and worth using for working papers. Replace the YAML front matter with what is below. 
+
+---
+title: "Example Manuscript"
+author: "Peter Economist, Paul Economist, Mary Economist"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+output: 
+  pdf_document:
+header-includes: \usepackage{setspace} \doublespacing
+documentclass: article
+bibliography: bibliography.bib
+---
 -->
 
  
