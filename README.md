@@ -1,6 +1,7 @@
 -   Research Project Template
 -   Getting Started
     -   Repository Contents
+-   The `data-raw` Folder
 
 Research Project Template
 =========================
@@ -50,24 +51,65 @@ to a convenient location.
 Repository Contents
 -------------------
 
-The repository contains the following files.
+The repository contains several folders and files. They are organized to
+keep data preperation and cleaning in one file, `data-raw`, analysis in
+another, `analysis`, and outputs from the analysis that will become
+tables and figures, and numbers in the text of the manuscript,
+`analysis-output`. The remaining files in the root directory are files
+related to the manuscript itself. Next, we'll demonstrate how to link
+the raw data to the analysis to the output to the manuscript so that all
+the steps to generate the manuscript are automated and thus, not subject
+to the inconsistencies that go along with peice-wise data preparation
+and analysis.
 
--   Folders
-    -   analysis-output
-    -   analysis
-    -   data-raw
--   Files
-    -   .gitignore
-    -   README.md
-    -   README.rmd
-    -   bibliography.bib
-    -   manuscript-example.Rmd
-    -   manuscript-example.pdf
-    -   research-project-template.Rproj
-    -   simple.latex
-    -   style-headers.md
-    -   tablesandfigures-example.Rmd
-    -   tablesandfigures-example.pdf
+The `data-raw` Folder
+=====================
+
+The `data-raw` folder should either contain your raw data files (that
+will **never** *ever* be modified), or a script that makes and api call,
+or pulls the raw data in from a shared server, etc. In this example
+file, there is a script called `fetch-raw-data.R`, and its contents are
+shown below
+
+    # Filename: fetch-raw-data.R
+    # This file fetches the raw data and performs pre-processing (cleaning) to get it ready for analyzs
+
+    library(RCurl)
+
+    ## Loading required package: bitops
+
+    library(xts)
+
+    ## Loading required package: zoo
+    ## 
+    ## Attaching package: 'zoo'
+    ## 
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     as.Date, as.Date.numeric
+
+    # Define Dates of Analysis
+      start  <- '2015-01-01'
+      today  <- format(Sys.time(),"%Y-%m-%d")
+
+    # Fetch Corn and Soybean Prices
+      CZ2016 <- getURL("https://www.quandl.com/api/v1/datasets/CME/CZ2016.csv")
+      SX2016 <- getURL("https://www.quandl.com/api/v1/datasets/CME/SX2016.csv")
+
+      CZ2016 <- read.csv(text = CZ2016)
+      SX2016 <- read.csv(text = SX2016)
+
+    # Define first column to be a date.
+      CZ2016[,1] <- as.Date(CZ2016[,1])
+      SX2016[,1] <- as.Date(SX2016[,1])
+
+    # Define the data objects to be xts objects, and keep only settlement prices
+      CZ2016 <- xts(CZ2016[,'Settle'], order.by=CZ2016[,1])
+      SX2016 <- xts(SX2016[,'Settle'], order.by=SX2016[,1])
+
+    # Trim the dates
+      CZ2016 <- CZ2016[paste0(start,'/',today)]
+      SX2016 <- SX2016[paste0(start,'/',today)]
 
 References
 ==========
