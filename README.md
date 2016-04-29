@@ -284,6 +284,53 @@ libraries that will be used by later code chunks.
     load('analysis-output/results.Rda')
     ```
 
+A Note About Latex Styles and the YAML Header
+=============================================
+
+Getting the pandoc default latex and the latex style you prefer to work
+can be a little tricky. In the root directory of this repository there
+is a file called `style-headers.md` This contains a few complete YAML
+headers that should work if you copy and paste them to replace the
+current manuscript's YAML header.
+
+Collaborating with Microsoft Word Users
+=======================================
+
+Many of us have colleagues who expect to recieve and be welcomed to edit
+Microsoft Word documents. Fortunately, reproducability can be
+maintained. With the `manuscript-example.Rmd` file open, notice that the
+`knit PDF` button is actually a drop down menu and `knit Word` is an
+option. If you click it, it will return to you a Microsoft Word document
+that you can deliver to your colleague or professor.
+
+They can be formatted with a .docx template. See the 'Style Reference\`
+description on
+[this](http://rmarkdown.rstudio.com/word_document_format.html) page.
+Using the template will keep you having to format the whole thing every
+time you update your colleagues and professors.
+
+You might have noticed that there is also a `tablesandfigures.Rmd` file
+in the root directory. This is for users who will need to produce Word
+documents. I have found no clean way to produce decently formatted
+tables and figures in Word using this method. I recommend keeping tables
+and figures in a separate docuemnt that you always render as a PDF, and
+a separate file for the manuscript text.
+
+Equations are still a problem. Latex is ignored by pandoc when producing
+Word documents so you will have to replace your equations. See [Iguana
+Tex](http://www.jonathanleroux.org/software/iguanatex/) for the ability
+to conver latex equations to pictures that can be pasted into the Word
+document.
+
+Starting Your Own Reproducable Project
+======================================
+
+Once you understand how all the peices fit together you can modify these
+files to conduct your own reproducable project. Just make sure your
+`data-raw` is accessed by your analysis scripts and that your results
+are stored in the `anlaysis-output` folder. Then make sure your
+manuscript pulls the data and analysis results automatically.
+
 References
 ==========
 

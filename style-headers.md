@@ -1,4 +1,19 @@
 
+# Plain Working Paper
+
+```
+---
+title: "A Very Serious Analysis of the Stationarity of Corn and Soybean Prices"
+author: "Peter Economist, Paul Economist, Mary Economist"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+output: 
+  pdf_document:
+    fig_caption: yes
+header-includes: \usepackage{setspace} \doublespacing
+bibliography: bibliography.bib
+---
+```
+
 # AJAE
 
 ```
