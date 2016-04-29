@@ -3,6 +3,7 @@
     -   Repository Contents
 -   Putting it all Together
     -   The `data-raw` Folder
+    -   The `analysis` Folder
 
 Research Project Template
 =========================
@@ -76,7 +77,10 @@ The `data-raw` folder should either contain your raw data files (that
 will **never** *ever* be modified), or a script that makes and api call,
 or pulls the raw data in from a shared server, etc. In this example
 file, there is a script called `fetch-raw-data.R`, and its contents are
-shown below
+shown below. This file fetches corn and soybean price data from
+[quandl.com](quandl.com) and puts them in data objects called
+`CZ2016 and SX2016`. Then it converts the data to `xts` objects, and
+trims the dates to the study period of interest.
 
     # Filename: fetch-raw-data.R
     # This file fetches the raw data and performs pre-processing (cleaning) to get it ready for analyzs
@@ -107,8 +111,62 @@ shown below
       CZ2016 <- CZ2016[paste0(start,'/',today)]
       SX2016 <- SX2016[paste0(start,'/',today)]
 
+Of course, every data cleaning and preparation activity will be
+different, but in this file you should do all the preparation so that
+the objects created by this script are ready to be accepted in the
+`analysis.R` script.
+
+The `analysis` Folder
+---------------------
+
+The contents of the `analysis` folder are below. The key is the line
+that says, `source('data-raw/fetch-raw-data.R')`. This calls the
+`fetch-raw-data.R` script so that when you run the code below, the raw
+data are fetched and prepared (from scratch each time you run the
+script). Then, the following contents of the `analysis.R` script test
+the corn and soybean prices for the presence of unit roots via the ADF
+test (Said and Dickey 1984).
+
+    # Filename: analysis.R
+    # This file performs statistical analysis. It could be just one file, so it doesn't neccessarly 
+    #  need it's own folder, but sometimes your analysis may get complicated enough that you want 
+    # to compartmentalize it. Separating different types of analyses into different scripts contained
+    #  in the same folder can facilitate this
+
+    library(urca)
+    library(vars)
+    # This line runs the source code that fetched your raw data and cleaned it. Now it is available 
+    # for conducting analysis.
+    source('data-raw/fetch-raw-data.R')
+
+    # Store results of ADF tests for Corn and Soybeans in a list
+    adf      <- list()
+    adf[[1]] <- ur.df(CZ2016, type = 'drift', lags = 5)
+    adf[[2]] <- ur.df(SX2016, type = 'drift', lags = 5) 
+
+
+    # Store results of a Johansen cointegration test for Corn and Soybeans 
+    jct      <- ca.jo(cbind(CZ2016, SX2016), type = 'eigen', K = 5)
+
+
+    # Fit a VAR
+
+    lag_selection <- VARselect(cbind(CZ2016, SX2016), lag.max = 8)
+
+    var_model <- VAR(cbind(CZ2016, SX2016), p = 1, type = "const")
+
+    # Save these results so that it can be pulled into the manuscript without re-running analysis.
+    save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
+
+    text_reg <- adf[[1]]@testreg
+    save(text_reg, file = 'analysis-output/reg_results.txt')
+
 References
 ==========
 
 Gandrud, Christopher. 2013. *Reproducible Research with R and R Studio*.
 CRC Press.
+
+Said, Said E, and David A Dickey. 1984. “Testing for Unit Roots in
+Autoregressive-Moving Average Models of Unknown Order.” *Biometrika* 71
+(3). Biometrika Trust: 599–607.

@@ -75,6 +75,7 @@ The contents of the `analysis` folder are below. The key is the line that says, 
 
 ```{r, warning = FALSE, message = FALSE}
 
+
 # Filename: analysis.R
 # This file performs statistical analysis. It could be just one file, so it doesn't neccessarly 
 #  need it's own folder, but sometimes your analysis may get complicated enough that you want 
@@ -82,7 +83,7 @@ The contents of the `analysis` folder are below. The key is the line that says, 
 #  in the same folder can facilitate this
 
 library(urca)
-
+library(vars)
 # This line runs the source code that fetched your raw data and cleaned it. Now it is available 
 # for conducting analysis.
 source('data-raw/fetch-raw-data.R')
@@ -108,7 +109,6 @@ save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
 
 text_reg <- adf[[1]]@testreg
 save(text_reg, file = 'analysis-output/reg_results.txt')
-
 
 ```
 

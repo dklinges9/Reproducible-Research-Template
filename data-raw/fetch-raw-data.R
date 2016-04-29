@@ -4,7 +4,7 @@
 library(Quandl)
 library(RCurl)
 library(xts)
-
+Quandl.api_key("79SfoMaQc1npRAuq9ExZ")
 
 # Define Dates of Analysis
   start  <- '2015-01-01'
