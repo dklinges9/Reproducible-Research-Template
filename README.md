@@ -6,22 +6,26 @@
     -   The `data-raw` Folder
     -   The `analysis` Folder
     -   The `analysis-output` Folder
+    -   The Manuscript
+        -   Markdown Basics
+-   This is a Level 1 Header
+    -   This is a Level 2 Header
 
 Research Project Template
 =========================
 
-This repository contains a template for a reproducable research project.
-The fundamental idea of reproducable research is that the steps that
+This repository contains a template for a reproducible research project.
+The fundamental idea of reproducible research is that the steps that
 take your research from raw data to manuscript, thesis, or report should
-be fully automated. This way, your work can be checked by your advisor,
+be fully automated. This way, your work can be checked by your adviser,
 mentors, collaborators, others working in your area, journal reviewers,
 and your future self.
 
-I became interested in reproducable research because I was tired of
+I became interested in reproducible research because I was tired of
 being terrified of my own analysis. I was constantly petrified someone
 would question my work and ask me to open the black box and verify what
 I did was correct; in some cases even being asked reproduce a result was
-terrifiying because I knew the convoluted path of data prep and cleaning
+terrifying because I knew the convoluted path of data prep and cleaning
 that I took in arriving at my result.
 
 I read the book [Reproducable Research with R and
@@ -30,19 +34,29 @@ by Christopher Gandrud (2013), and I read a lot of blog posts and
 tutorials by [Karl Broman](http://kbroman.org/pages/software.html) and
 [Carl
 Boettiger](http://www.carlboettiger.info/2012/05/06/research-workflow.html)
-and I struck out on my own path to execute a reproducable research
+and I struck out on my own path to execute a reproducible research
 project from start to finish. The repository for that project is
 [here](https://github.com/mindymallory/BBOBAS), while I was successful
 in learning the basics of how r, rmarkdown, knitr, and pandoc combine to
-make reproducable research possible, you can tell just by looking at the
+make reproducible research possible, you can tell just by looking at the
 project's Github repository that I failed miserably at making the
-project reproducable. This is because the repository is totally
+project reproducible. This is because the repository is totally
 unorganized, and I am pretty sure I am the only one who could reproduce
 the results from this project.
 
-But in that failure, I learned a lot about how a reproducable research
+But in that failure, I learned a lot about how a reproducible research
 project should be organized. I built this template for my future
 students and for my future self.
+
+R and RStudio are an excellent vehicle for conducting reproducible
+research. You write manuscripts and reports in `.rmarkdown` documents
+that includes code chunks that perform analysis. The code chunks are
+evaluated by `R` and incorporated in the document by the tools in the
+`knitr` package to produce a markdown `.md` document. From there a
+program called `pandoc` converts your markdown document to whatever file
+format you like: PDF (formatted with latex .csl files), html, or
+Microsoft Word. This all happens without the user really knowing what is
+going on, which makes it easy to get started.
 
 Getting Started
 ===============
@@ -56,14 +70,14 @@ Repository Contents
 -------------------
 
 The repository contains several folders and files. They are organized to
-keep data preperation and cleaning in one file, `data-raw`, analysis in
+keep data preparation and cleaning in one file, `data-raw`, analysis in
 another, `analysis`, and outputs from the analysis that will become
 tables and figures, and numbers in the text of the manuscript,
 `analysis-output`. The remaining files in the root directory are files
 related to the manuscript itself. Next, we'll demonstrate how to link
 the raw data to the analysis to the output to the manuscript so that all
 the steps to generate the manuscript are automated and thus, not subject
-to the inconsistencies that go along with peice-wise data preparation
+to the inconsistencies that go along with piece-wise data preparation
 and analysis.
 
 Generate the Manuscript with One Click
@@ -83,7 +97,9 @@ Install the following packages, if they are not already installed:
     install.packages(urca)
     install.packages(vars)
 
-Click the 'Knit PDF' button on the code editing pane.
+Click the 'Knit PDF' button on the code editing pane, and voila! A PDF
+of the manuscript should appear. In what follows we will walk through
+what is happening step by step.
 
 Putting it all Together
 =======================
@@ -108,29 +124,19 @@ trims the dates to the study period of interest.
 
     library(RCurl)
     library(xts)
-
+    library(Quandl)
+    Quandl.api_key("79SfoMaQc1npRAuq9ExZ")
     # Define Dates of Analysis
       start  <- '2015-01-01'
       today  <- format(Sys.time(),"%Y-%m-%d")
 
     # Fetch Corn and Soybean Prices
-      CZ2016 <- getURL("https://www.quandl.com/api/v1/datasets/CME/CZ2016.csv")
-      SX2016 <- getURL("https://www.quandl.com/api/v1/datasets/CME/SX2016.csv")
-
-      CZ2016 <- read.csv(text = CZ2016)
-      SX2016 <- read.csv(text = SX2016)
-
-    # Define first column to be a date.
-      CZ2016[,1] <- as.Date(CZ2016[,1])
-      SX2016[,1] <- as.Date(SX2016[,1])
-
-    # Define the data objects to be xts objects, and keep only settlement prices
-      CZ2016 <- xts(CZ2016[,'Settle'], order.by=CZ2016[,1])
-      SX2016 <- xts(SX2016[,'Settle'], order.by=SX2016[,1])
+      CZ2016 <- Quandl("CME/CZ2016", type = "xts")
+      SX2016 <- Quandl("CME/SX2016", type = "xts")
 
     # Trim the dates
-      CZ2016 <- CZ2016[paste0(start,'/',today)]
-      SX2016 <- SX2016[paste0(start,'/',today)]
+      CZ2016 <- CZ2016[paste0(start,'/',today), 'Settle']
+      SX2016 <- SX2016[paste0(start,'/',today), 'Settle']
 
 Of course, every data cleaning and preparation activity will be
 different, but in this file you should do all the preparation so that
@@ -192,8 +198,83 @@ in by R and the variable names, `adf`, `jct`, `lag_selection`, and
 `results.rda` file into the `tablesandfigures-example.Rmd` document to
 make tables and figures in the manuscript.
 
+The Manuscript
+--------------
+
+At the top of the file named `manuscript-example.Rmd` you see a YAML
+(Yet Another Mark Up Language) header. This header tells knitr and
+pandoc what exactly you want done with the document.
+
+    ---
+    title: "A Very Serious Analysis of the Stationarity of Corn and Soybean Prices"
+    author: "Peter Economist, Paul Economist, Mary Economist"
+    date: 'April 29, 2016'
+    output: 
+      pdf_document:
+        template: simple.latex
+        fig_caption: yes
+    documentclass: ajae
+    bibliography: bibliography.bib
+    ---
+
+`Title` and `author` are self explanatory.
+
+`date`: field tells knitr to place the current date formatted in the
+`%B %d, %Y` style.
+
+`output`: After knitr evaluates code chunks contained in the body of the
+file. The output feild tells pandoc what kind of file to create. Here we
+have specified to produce PDF output. PDF output is produced by pandoc
+creating a `.tex` file and if no further fields are specified there is a
+latex template that pandoc uses to make the docuement (based on the
+`article` class). Here we have specified to create the manuscript
+according to the specifications of the American Journal of Agricultural
+Economics (AJAE). Since they have their own latex class (`ajae`) that
+comes in the standard latex distribution we can just specify
+`documentclass: ajae` and the formatting is handled. We needed to also
+specify `template: simple.latex` because something in the pandoc
+template was clashing with the `ajae.csl` file. I removed the problem
+lines and saved that as `simple.latex`, which you can see in the root
+directory of this repository. We will cover how to specify different
+output formats in a later section.
+
+`bibliography`: The file `bibliography.bib` is located in the root
+directory of this repository and it is a Bibtex database of all the
+references needed for the manuscript. Open this file and note what the
+reference entries look like. To build a database for your own paper,
+Google Scholar has a 'cite' button below every search result it returns.
+Click 'cite', then click 'Bibtex' and a plain text window will open with
+the properly formatted Bibtex entry. Just copy and paste this into
+`bibliography.bib`.
+
+### Markdown Basics
+
+Formatting a docuemnt with Markdown is very easy and there are many
+resources to learn the basics. Start with
+[<http://rmarkdown.rstudio.com/index.html>](http://rmarkdown.rstudio.com/index.html)
+and explore.
+
+Main points:
+
+    # This is a Level 1 Header
+
+This is a Level 1 Header
+========================
+
+    ## This is a Level 2 Header
+
+This is a Level 2 Header
+------------------------
+
+    This is a citation of Akerlof's Lemons paper [@akerlof1970vthe].
+
+This is a citation of Akerlof's Lemons paper (Akerlof 1970).
+
 References
 ==========
+
+Akerlof, George. 1970. “The Market for Lemons: Qualitative Uncertainty
+and the Market MechanismV.” *Quarterly Journal of Economics* 84.
 
 Gandrud, Christopher. 2013. *Reproducible Research with R and R Studio*.
 CRC Press.
