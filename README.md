@@ -1,7 +1,8 @@
 -   Research Project Template
 -   Getting Started
     -   Repository Contents
--   The `data-raw` Folder
+-   Putting it all Together
+    -   The `data-raw` Folder
 
 Research Project Template
 =========================
@@ -62,8 +63,14 @@ the steps to generate the manuscript are automated and thus, not subject
 to the inconsistencies that go along with peice-wise data preparation
 and analysis.
 
+Putting it all Together
+=======================
+
+Now we see the contents of the data and analysis files and how they come
+together.
+
 The `data-raw` Folder
-=====================
+---------------------
 
 The `data-raw` folder should either contain your raw data files (that
 will **never** *ever* be modified), or a script that makes and api call,
@@ -75,18 +82,7 @@ shown below
     # This file fetches the raw data and performs pre-processing (cleaning) to get it ready for analyzs
 
     library(RCurl)
-
-    ## Loading required package: bitops
-
     library(xts)
-
-    ## Loading required package: zoo
-    ## 
-    ## Attaching package: 'zoo'
-    ## 
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     as.Date, as.Date.numeric
 
     # Define Dates of Analysis
       start  <- '2015-01-01'

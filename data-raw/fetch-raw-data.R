@@ -1,8 +1,10 @@
 # Filename: fetch-raw-data.R
 # This file fetches the raw data and performs pre-processing (cleaning) to get it ready for analyzs
-
+#install.packages("Quandl")
+library(Quandl)
 library(RCurl)
 library(xts)
+
 
 # Define Dates of Analysis
   start  <- '2015-01-01'

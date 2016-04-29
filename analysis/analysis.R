@@ -4,7 +4,7 @@
 #  in the same folder can facilitate this
 
 library(urca)
-
+library(vars)
 # This line runs the source code that fetched your raw data and cleaned it. Now it is available 
 # for conducting analysis.
 source('data-raw/fetch-raw-data.R')

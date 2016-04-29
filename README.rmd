@@ -27,11 +27,15 @@ First download the repository to your local machine. If you use Github, then thi
 
 The repository contains several folders and files. They are organized to keep data preperation and cleaning in one file, `data-raw`, analysis in another, `analysis`, and outputs from the analysis that will become tables and figures, and numbers in the text of the manuscript, `analysis-output`.  The remaining files in the root directory are files related to the manuscript itself. Next, we'll demonstrate how to link the raw data to the analysis to the output to the manuscript so that all the steps to generate the manuscript are automated and thus, not subject to the inconsistencies that go along with peice-wise data preparation and analysis.
 
-# The `data-raw` Folder
+# Putting it all Together
 
-The `data-raw` folder should either contain your raw data files (that will **never** *ever* be modified), or a script that makes and api call, or pulls the raw data in from a shared server, etc. In this example file, there is a script called `fetch-raw-data.R`, and its contents are shown below
+Now we see the contents of the data and analysis files and how they come together. 
 
-```{r}
+## The `data-raw` Folder
+
+The `data-raw` folder should either contain your raw data files (that will **never** *ever* be modified), or a script that makes and api call, or pulls the raw data in from a shared server, etc. In this example file, there is a script called `fetch-raw-data.R`, and its contents are shown below. This file fetches corn and soybean price data from [quandl.com](quandl.com) and puts them in data objects called `CZ2016 and SX2016`. Then it converts the data to `xts` objects, and trims the dates to the study period of interest. 
+
+```{r, warning = FALSE, message = FALSE}
 # Filename: fetch-raw-data.R
 # This file fetches the raw data and performs pre-processing (cleaning) to get it ready for analyzs
 
@@ -63,9 +67,50 @@ library(xts)
 
 ```
 
+Of course, every data cleaning and preparation activity will be different, but in this file you should do all the preparation so that the objects created by this script are ready to be accepted in the `analysis.R` script. 
+
+## The `analysis` Folder
+
+The contents of the `analysis` folder are below. The key is the line that says, `source('data-raw/fetch-raw-data.R')`. This calls the `fetch-raw-data.R` script so that when you run the code below, the raw data are fetched and prepared (from scratch each time you run the script). Then, the following contents of the `analysis.R` script test the corn and soybean prices for the presence of unit roots via the ADF test [@said1984testing]. 
+
+```{r, warning = FALSE, message = FALSE}
+
+# Filename: analysis.R
+# This file performs statistical analysis. It could be just one file, so it doesn't neccessarly 
+#  need it's own folder, but sometimes your analysis may get complicated enough that you want 
+# to compartmentalize it. Separating different types of analyses into different scripts contained
+#  in the same folder can facilitate this
+
+library(urca)
+
+# This line runs the source code that fetched your raw data and cleaned it. Now it is available 
+# for conducting analysis.
+source('data-raw/fetch-raw-data.R')
+
+# Store results of ADF tests for Corn and Soybeans in a list
+adf      <- list()
+adf[[1]] <- ur.df(CZ2016, type = 'drift', lags = 5)
+adf[[2]] <- ur.df(SX2016, type = 'drift', lags = 5) 
 
 
+# Store results of a Johansen cointegration test for Corn and Soybeans 
+jct      <- ca.jo(cbind(CZ2016, SX2016), type = 'eigen', K = 5)
 
+
+# Fit a VAR
+
+lag_selection <- VARselect(cbind(CZ2016, SX2016), lag.max = 8)
+
+var_model <- VAR(cbind(CZ2016, SX2016), p = 1, type = "const")
+
+# Save these results so that it can be pulled into the manuscript without re-running analysis.
+save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
+
+text_reg <- adf[[1]]@testreg
+save(text_reg, file = 'analysis-output/reg_results.txt')
+
+
+```
 
 
 # References
