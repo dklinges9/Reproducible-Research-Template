@@ -1,0 +1,30 @@
+---
+output: 
+  pdf_document:
+    template: simple.latex 
+    fig_caption: yes
+documentclass: ajae
+bibliography: bibliography.bib
+---
+
+# Tables and Figures
+
+```{r, echo=FALSE, warning = FALSE, message = FALSE, comment = NA}
+load('analysis-output/results.Rda')
+library(xtable)
+library(vars)
+
+
+summary(var_model)
+
+
+
+```
+
+
+
+```{r, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = 'Diganostics' }
+
+plot(stability(var_model), nc = 2)
+
+```

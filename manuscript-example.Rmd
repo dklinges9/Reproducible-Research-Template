@@ -1,51 +1,79 @@
 ---
-title: "Example Manuscript"
+title: "A Very Serious Analysis of the Stationarity of Corn and Soybean Prices"
 author: "Peter Economist, Paul Economist, Mary Economist"
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 output: 
   pdf_document:
-    template: simple.latex 
+    template: simple.latex
+    fig_caption: yes
 documentclass: ajae
 bibliography: bibliography.bib
 ---
-
-<!--
-There are many pre-prepared latex document classes that will format your document so that you get a beautifully formatted document for zero work. See the link below for many examples.
-
-http://tex.stackexchange.com/questions/238224/comprehensive-overview-of-the-existing-latex-classes-or-how-to-choose-the-right
-
-Notice the template in the style of the American Journal of Agricultural Economics is 'ajae', which is listed in the 'economic' package in the link above. 
-
-Students will also want to try, 'uiucthesis' as the documentclass option.
-
-
-Also, 'article' is the default class and worth using for working papers. Replace the YAML front matter with what is below. 
-
----
-title: "Example Manuscript"
-author: "Peter Economist, Paul Economist, Mary Economist"
-date: '`r format(Sys.time(), "%B %d, %Y")`'
-output: 
-  pdf_document:
-header-includes: \usepackage{setspace} \doublespacing
-documentclass: article
-bibliography: bibliography.bib
----
--->
 
  
 
 
 
-```{r, echo=FALSE}
+```{r, warning = FALSE, message = FALSE, echo=FALSE}
+library(xtable)
+library(ggplot2)
+library(ggfortify)
+library(gridExtra)
+source('data-raw/fetch-raw-data.R')
 load('analysis-output/results.Rda')
 ```
 
 
 # Introduction 
 
-This repository contains a template for a reproducable research project. The fundamental idea of reproducable research is that the steps that take your research from raw data to manuscript, thesis, or report should be fully automated. This way, your work can be checked by your advisor, mentors, collaborators, others working in your area, journal reviewers, and your future self. The last being the most important. 
+This paper is a very serious examination of the relationship between the December 2016 corn and November 2016 soybean futures prices.
 
-Further reading [@akerlof1970vthe]
+# Data
+
+We use daily settlement prices for the December 2016 and November 2016 corn and soybeans futures contracts on the Chicago Board of Trade from January 2, 2015 to `r format(Sys.time(),"%B %d, %Y")`. The data are plotted in Figure 1. 
+
+# Methods 
+
+We conduct a thorough statistical analysis, begining with pretesting for stationarity and cointegration; then we proceed to fitting an econometric model of the price relationships. 
+
+## Pre-testing for Stationarity and Cointegration
+
+We conduct an adf test on the corn and sobean price series to determine if they have a unit root [@said1984testing, @enders1995applied].
+
+\begin{equation}
+\Delta y_t = \alpha + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \dots + \delta_{p-1} \Delta y_{t-p-1} + \epsilon_t
+\end{equation}
+
+where $p$ is the order of the autogressive term in the prices. The test will determine if there is a unit root, H0: $\gamma = 0$, with no drift, H0: $\alpha = 0$. 
+
+# Results
+
+We found there to be a unit root in soybeans, but corn exhibited stationarity. The values of the ADF statistics for corn and soybeans were `r round(adf[[1]]@teststat[1], digits = 2)` and `r round(adf[[2]]@teststat[1], digits = 2)`, respectively.
+
+
+
+\clearpage
+
+
+```{r, echo=FALSE, warning = FALSE, message = FALSE, results = "asis"}
+t = list()
+t[[1]] <- xtable(adf[[1]]@testreg, caption = "ADF Results for Corn")
+t[[2]] <- xtable(adf[[2]]@testreg, caption = "ADF Results for Soybeans")
+print.xtable(t[[1]], caption.placement = 'top', comment = FALSE)
+```
+
+```{r, echo=FALSE, warning = FALSE, message = FALSE, results = "asis"}
+print.xtable(t[[2]], caption.placement = 'top', comment = FALSE)
+```
+
+```{r, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = 'Corn and Soybean Prices' }
+plot1 <- autoplot(CZ2016, ylab = "Corn Prices, cents/bu") + theme_bw()
+plot2 <- autoplot(SX2016, ylab = "Soybean Prices, cents/bu") + theme_bw()
+grid.arrange(plot1, plot2, ncol=1)
+```
+
+
+
+\clearpage
 
 # References 
