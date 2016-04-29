@@ -282,7 +282,20 @@ evaluated.
      t[[1]] <- xtable(adf[[1]]@testreg, caption = "ADF Results for Corn")
      t[[2]] <- xtable(adf[[2]]@testreg, caption = "ADF Results for Soybeans")
      print.xtable(t[[1]], caption.placement = 'top', comment = FALSE)
-     ```
+     ``
+
+In the opening code chunk, we specify that we want to load the results
+from the `analysis-output` folder and we also want to fetch the raw
+data, which we will plot in a later code chunk.
+
+    ``{r, warning = FALSE, message = FALSE, echo=FALSE}
+    library(xtable)
+    library(ggplot2)
+    library(ggfortify)
+    library(gridExtra)
+    source('data-raw/fetch-raw-data.R')
+    load('analysis-output/results.Rda')
+    ```
 
 References
 ==========
