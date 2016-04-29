@@ -1,6 +1,6 @@
 -   Research Project Template
 
-[research project template](#Research%20Project%20Template)
+[research project template](#%20Research%20Project%20Template)
 
 Research Project Template
 =========================
