@@ -1,6 +1,6 @@
 -   Research Project Template
-
-[research project template](#%20Research%20Project%20Template)
+-   Getting Started
+    -   Repository Contents
 
 Research Project Template
 =========================
@@ -34,6 +34,43 @@ project's Github repository that I failed miserably at making the
 project reproducable. This is because the repository is totally
 unorganized, and I am pretty sure I am the only one who could reproduce
 the results from this project.
+
+But in that failure, I learned a lot about how a reproducable research
+project should be organized. I built this template for my future
+students and for my future self.
+
+Getting Started
+===============
+
+First download the repository to your local machine. If you use Github,
+then this will mean cloning the repository into a new R project. If you
+are not a Github user, simply click 'Download Zip' and extract the file
+to a convenient location.
+
+Repository Contents
+-------------------
+
+The repository contains the following files.
+
+-   Folders
+    -   analysis-output
+    -   analysis
+    -   data-raw
+-   Files
+    -   .gitignore
+    -   README.md
+    -   README.rmd
+    -   bibliography.bib
+    -   manuscript-example.Rmd
+    -   manuscript-example.pdf
+    -   research-project-template.Rproj
+    -   simple.latex
+    -   style-headers.md
+    -   tablesandfigures-example.Rmd
+    -   tablesandfigures-example.pdf
+
+References
+==========
 
 Gandrud, Christopher. 2013. *Reproducible Research with R and R Studio*.
 CRC Press.
