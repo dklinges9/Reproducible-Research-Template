@@ -10,6 +10,7 @@
         -   Markdown Basics
 -   This is a Level 1 Header
     -   This is a Level 2 Header
+        -   Code Chunks
 
 Research Project Template
 =========================
@@ -269,6 +270,19 @@ This is a Level 2 Header
     This is a citation of Akerlof's Lemons paper [@akerlof1970vthe].
 
 This is a citation of Akerlof's Lemons paper (Akerlof 1970).
+
+### Code Chunks
+
+This is an example of a code chunk that is in the manuscript document.
+The opening line tells `knitr` that what follows is code chunk to be
+evaluated.
+
+     ``{r, echo=FALSE, warning = FALSE, message = FALSE, results = "asis"}
+     t = list()
+     t[[1]] <- xtable(adf[[1]]@testreg, caption = "ADF Results for Corn")
+     t[[2]] <- xtable(adf[[2]]@testreg, caption = "ADF Results for Soybeans")
+     print.xtable(t[[1]], caption.placement = 'top', comment = FALSE)
+     ```
 
 References
 ==========
