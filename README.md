@@ -1,5 +1,7 @@
 -   Research Project Template
 
+[research project template](#Research%20Project%20Template)
+
 Research Project Template
 =========================
 
@@ -19,5 +21,7 @@ that I took in arriving at my result.
 
 I read the book [Reproducable Research with R and
 RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Hall/dp/1466572841)
-by (<span class="citeproc-not-found"
-data-reference-id="gandrud2013reproducible">**???**</span>).
+by (Gandrud 2013).
+
+Gandrud, Christopher. 2013. *Reproducible Research with R and R Studio*.
+CRC Press.
