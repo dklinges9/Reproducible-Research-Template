@@ -4,7 +4,6 @@ author: 'Mindy L. Mallory'
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 output: 
   md_document:
-    toc: true
 bibliography: bibliography.bib
 ---
 
@@ -182,7 +181,7 @@ This is an example of a code chunk that is in the manuscript document. The openi
      print.xtable(t[[1]], caption.placement = 'top', comment = FALSE)
      ``
 
-In the opening code chunk, we specify that we want to load the results from the `analysis-output` folder and we also want to fetch the raw data, which we will plot in a later code chunk. 
+In the opening code chunk, we specify that we want to load the results from the `analysis-output` folder and we also want to fetch the raw data, which we will plot in a later code chunk. Also, we load all the libraries that will be used by later code chunks.  
 
     ``{r, warning = FALSE, message = FALSE, echo=FALSE}
     library(xtable)

@@ -1,17 +1,3 @@
--   Research Project Template
--   Getting Started
-    -   Repository Contents
--   Generate the Manuscript with One Click
--   Putting it all Together
-    -   The `data-raw` Folder
-    -   The `analysis` Folder
-    -   The `analysis-output` Folder
-    -   The Manuscript
-        -   Markdown Basics
--   This is a Level 1 Header
-    -   This is a Level 2 Header
-        -   Code Chunks
-
 Research Project Template
 =========================
 
@@ -286,7 +272,8 @@ evaluated.
 
 In the opening code chunk, we specify that we want to load the results
 from the `analysis-output` folder and we also want to fetch the raw
-data, which we will plot in a later code chunk.
+data, which we will plot in a later code chunk. Also, we load all the
+libraries that will be used by later code chunks.
 
     ``{r, warning = FALSE, message = FALSE, echo=FALSE}
     library(xtable)
