@@ -1,3 +1,4 @@
+# Filename: analysis.R
 # This file performs statistical analysis. It could be just one file, so it doesn't neccessarly 
 #  need it's own folder, but sometimes your analysis may get complicated enough that you want 
 # to compartmentalize it. Separating different types of analyses into different scripts contained
