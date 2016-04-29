@@ -1,6 +1,7 @@
 -   Research Project Template
 -   Getting Started
     -   Repository Contents
+-   Generate the Manuscript with One Click
 -   Putting it all Together
     -   The `data-raw` Folder
     -   The `analysis` Folder
@@ -64,6 +65,25 @@ the raw data to the analysis to the output to the manuscript so that all
 the steps to generate the manuscript are automated and thus, not subject
 to the inconsistencies that go along with peice-wise data preparation
 and analysis.
+
+Generate the Manuscript with One Click
+======================================
+
+Open the `manuscript-example.Rmd` and `tablesandfigures-examples.Rmd`
+files in RStudio. Click the 'Knit PDF' button on the code editing pane.
+Install the following packages, if they are not already installed:
+
+    install.packages(xtable)
+    install.packages(ggplot2)
+    install.packages(ggfortify)
+    install.packages(gridExtra)
+    install.packages(Quandl)
+    install.packages(RCurl)
+    install.packages(xts)
+    install.packages(urca)
+    install.packages(vars)
+
+Click the 'Knit PDF' button on the code editing pane.
 
 Putting it all Together
 =======================
@@ -162,7 +182,7 @@ test (Said and Dickey 1984).
 The `analysis-output` Folder
 ----------------------------
 
-The last line says,
+The last line of the code snippet above says,
 `save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')`.
 What this does is save the objects that contain the adf, Johansen
 cointegration, and VAR regression results to an `.rda` file called

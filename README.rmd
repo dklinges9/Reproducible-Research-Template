@@ -27,6 +27,24 @@ First download the repository to your local machine. If you use Github, then thi
 
 The repository contains several folders and files. They are organized to keep data preperation and cleaning in one file, `data-raw`, analysis in another, `analysis`, and outputs from the analysis that will become tables and figures, and numbers in the text of the manuscript, `analysis-output`.  The remaining files in the root directory are files related to the manuscript itself. Next, we'll demonstrate how to link the raw data to the analysis to the output to the manuscript so that all the steps to generate the manuscript are automated and thus, not subject to the inconsistencies that go along with peice-wise data preparation and analysis.
 
+# Generate the Manuscript with One Click
+
+Open the `manuscript-example.Rmd` and `tablesandfigures-examples.Rmd` files in RStudio. Click the 'Knit PDF' button on the code editing pane. Install the following packages, if they are not already installed:
+
+```
+install.packages(xtable)
+install.packages(ggplot2)
+install.packages(ggfortify)
+install.packages(gridExtra)
+install.packages(Quandl)
+install.packages(RCurl)
+install.packages(xts)
+install.packages(urca)
+install.packages(vars)
+```
+
+Click the 'Knit PDF' button on the code editing pane, and voila! A PDF of the manuscript should appear. In what follows we will walk through what is happening step by step. 
+
 # Putting it all Together
 
 Now we see the contents of the data and analysis files and how they come together. 
@@ -116,7 +134,10 @@ save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
 
 ## The `analysis-output` Folder
 
-The last line says, `save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')`. What this does is save the objects that contain the adf, Johansen cointegration, and VAR regression results to an `.rda` file called `results.rda` in the `analysis` folder. This 'R Data' file can be read in by R and the variable names, `adf`, `jct`, `lag_selection`, and `var_model` are preserved when loaded later. We will load the `results.rda` file into the `tablesandfigures-example.Rmd` document to make tables and figures in the manuscript. 
+The last line of the code snippet above says, `save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')`. What this does is save the objects that contain the adf, Johansen cointegration, and VAR regression results to an `.rda` file called `results.rda` in the `analysis` folder. This 'R Data' file can be read in by R and the variable names, `adf`, `jct`, `lag_selection`, and `var_model` are preserved when loaded later. We will load the `results.rda` file into the `tablesandfigures-example.Rmd` document to make tables and figures in the manuscript. 
+
+## The Manuscript
+
 
 
 
