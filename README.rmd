@@ -73,6 +73,9 @@ Of course, every data cleaning and preparation activity will be different, but i
 
 The contents of the `analysis` folder are below. The key is the line that says, `source('data-raw/fetch-raw-data.R')`. This calls the `fetch-raw-data.R` script so that when you run the code below, the raw data are fetched and prepared (from scratch each time you run the script). Then, the following contents of the `analysis.R` script test the corn and soybean prices for the presence of unit roots via the ADF test [@said1984testing]. 
 
+The last line says, `save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')`. What this does is save the objects that contain the adf, Johansen cointegration, and VAR regression results to an `.rda` file called `results.rda`. This 'R Data' file can be read in by R and the variable names, `adf`, `jct`, `lag_selection`, and `var_model` are preserved when loaded later. We will load the `results.rda` file into the `tablesandfigures-example.Rmd` document to make tables and figures in the manuscript. 
+
+
 ```{r, warning = FALSE, message = FALSE}
 
 
@@ -107,8 +110,7 @@ var_model <- VAR(cbind(CZ2016, SX2016), p = 1, type = "const")
 # Save these results so that it can be pulled into the manuscript without re-running analysis.
 save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
 
-text_reg <- adf[[1]]@testreg
-save(text_reg, file = 'analysis-output/reg_results.txt')
+
 
 ```
 

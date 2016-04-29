@@ -29,7 +29,6 @@ var_model <- VAR(cbind(CZ2016, SX2016), p = 1, type = "const")
 # Save these results so that it can be pulled into the manuscript without re-running analysis.
 save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
 
-text_reg <- adf[[1]]@testreg
-save(text_reg, file = 'analysis-output/reg_results.txt')
+
 
 
