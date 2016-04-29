@@ -4,6 +4,7 @@
 -   Putting it all Together
     -   The `data-raw` Folder
     -   The `analysis` Folder
+    -   The `analysis-output` Folder
 
 Research Project Template
 =========================
@@ -127,16 +128,6 @@ script). Then, the following contents of the `analysis.R` script test
 the corn and soybean prices for the presence of unit roots via the ADF
 test (Said and Dickey 1984).
 
-The last line says,
-`save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')`.
-What this does is save the objects that contain the adf, Johansen
-cointegration, and VAR regression results to an `.rda` file called
-`results.rda`. This 'R Data' file can be read in by R and the variable
-names, `adf`, `jct`, `lag_selection`, and `var_model` are preserved when
-loaded later. We will load the `results.rda` file into the
-`tablesandfigures-example.Rmd` document to make tables and figures in
-the manuscript.
-
     # Filename: analysis.R
     # This file performs statistical analysis. It could be just one file, so it doesn't neccessarly 
     #  need it's own folder, but sometimes your analysis may get complicated enough that you want 
@@ -167,6 +158,19 @@ the manuscript.
 
     # Save these results so that it can be pulled into the manuscript without re-running analysis.
     save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')
+
+The `analysis-output` Folder
+----------------------------
+
+The last line says,
+`save(adf, jct, lag_selection, var_model, file = 'analysis-output/results.rda')`.
+What this does is save the objects that contain the adf, Johansen
+cointegration, and VAR regression results to an `.rda` file called
+`results.rda` in the `analysis` folder. This 'R Data' file can be read
+in by R and the variable names, `adf`, `jct`, `lag_selection`, and
+`var_model` are preserved when loaded later. We will load the
+`results.rda` file into the `tablesandfigures-example.Rmd` document to
+make tables and figures in the manuscript.
 
 References
 ==========
