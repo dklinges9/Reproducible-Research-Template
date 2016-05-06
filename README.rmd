@@ -7,6 +7,7 @@ output:
 bibliography: bibliography.bib
 ---
 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 # Research Project Template
 
@@ -203,7 +204,18 @@ They can be formatted with a .docx template. See the 'Style Reference` descripti
 
 You might have noticed that there is also a `tablesandfigures.Rmd` file in the root directory. This is for users who will need to produce Word documents. I have found no clean way to produce decently formatted tables and figures in Word using this method. I recommend keeping tables and figures in a separate docuemnt that you always render as a PDF, and a separate file for the manuscript text.
 
-Equations are still a problem. Latex is ignored by pandoc when producing Word documents so you will have to replace your equations. See [Iguana Tex](http://www.jonathanleroux.org/software/iguanatex/) for the ability to conver latex equations to pictures that can be pasted into the Word document. 
+Equations are still a problem. Pandoc can interpret math symbols surrounded by `$`, as `$\exp^{i \pi} = -1$` will be rendered as $\exp^{i \pi} = -1$.  However, these equations are not automatically numbered. To get automatically numbered equations that can be cross-referenced, they must be produced with pure Latex code. As in, 
+
+`\begin{equation}
+\Delta y_t = \alpha + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \dots + \delta_{p-1} \Delta y_{t-p-1} + \epsilon_t
+\end{equation}`
+
+being rendered as, 
+
+$\Delta y_t = \alpha + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \dots + \delta_{p-1} \Delta y_{t-p-1} + \epsilon_t$
+    
+  
+The trouble is that Latex is ignored by pandoc when producing Word documents so when you knit the Word document after writing your equations in pure Latex, they will be missing from the Word docuemnt. This means you will have to replace them in the Word document one way or another. There is a reasonable workaround. [Iguana Tex](http://www.jonathanleroux.org/software/iguanatex/) is a Microsoft Powerpoint add-in that takes latex equations and returns copy-and-pasteable figures of typeset equations. I recommend creating one new slide for each equation in your document, then use Iguana Tex to obtain figures of your equations that can be pasted into the Word document.
 
 # Starting Your Own Reproducable Project
 
