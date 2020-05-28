@@ -1,0 +1,50 @@
+
+
+LINKS FOR THE GITHUB INTRO TUTORIAL
+
+Zoom link:
+https://ufl.zoom.us/j/6277091232
+
+Download and Install GitHub Desktop:
+https://desktop.github.com/
+This page will have a big purple button for downloading, and then after opening the downloaded file click through the installation guide. Here's a help guide as well.
+
+Download Git:
+https://carpentries.github.io/workshop-template/#git
+Here's an important guide (just use the section titled "Git") that provides all of the settings to choose when installing– most will likely be the default settings for you, but read this guide just in case.
+
+log into your GitHub account
+https://github.com/
+
+Download Git Large File Storage:
+https://git-lfs.github.com/
+
+
+Template repository:
+https://github.com/dklinges9/Reproducible-Research-Template
+
+
+Other Repos of reference:
+https://github.com/Smithsonian/CCRCN-Data-Library
+https://ccrcn.shinyapps.io/CoastalCarbonAtlas/
+
+https://github.com/weecology/PortalData
+
+https://github.com/jeffreyhanson/global-protected-areas
+
+https://github.com/carlos-alberto-silva/rGEDI
+
+
+
+
+
+Git cheatsheet:
+https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
+
+
+Gitignore:
+https://github.com/github/gitignore
+
+
+Markdown Chrome plug-in:
+https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl
