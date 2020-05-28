@@ -1,56 +1,24 @@
-[Tutorial](http://mindymallory.github.io/research-project-template/intro-to-r/)
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This
 work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
 Commons Attribution-ShareAlike 4.0 International License</a>.
 
+**Attributions:**  
+[Mindy Mallory Research Project Template](https://github.com/mindymallory/research-project-template)  
+[Griffin Chure Reproducible Research](https://github.com/gchure/reproducible_research)  
+
 Research Project Template
 =========================
 
-This repository contains a template for a reproducible research project.
-The fundamental idea of reproducible research is that the steps that
-take your research from raw data to manuscript, thesis, or report should
-be fully automated. This way, your work can be checked by your adviser,
-mentors, collaborators, others working in your area, journal reviewers,
-and your future self.
+### Overview
+This repository sets out the skeleton of an organizational structure used for scientific research. It loosely follows what I have used for several of my research projects and I hope it inspires you to conduct your research in an open, reproducible, and honest manner.
 
-I became interested in reproducible research because I was tired of
-being terrified of my own analysis. I was constantly petrified someone
-would question my work and ask me to open the black box and verify what
-I did was correct; in some cases even being asked reproduce a result was
-terrifying because I knew the convoluted path of data prep and cleaning
-that I took in arriving at my result.
+### How to Use
+To use this template for your research, fork this repository, change the name
+to something descriptive for your project, and adjust the licensing as you
+see fit.
 
-I read the book [Reproducable Research with R and
-RStudio](http://www.amazon.com/Reproducible-Research-Studio-Chapman-Hall/dp/1466572841)
-by Christopher Gandrud (2013), and I read a lot of blog posts and
-tutorials by [Karl Broman](http://kbroman.org/pages/software.html) and
-[Carl
-Boettiger](http://www.carlboettiger.info/2012/05/06/research-workflow.html)
-and I struck out on my own path to execute a reproducible research
-project from start to finish. The repository for that project is
-[here](https://github.com/mindymallory/BBOBAS), while I was successful
-in learning the basics of how r, rmarkdown, knitr, and pandoc combine to
-make reproducible research possible, you can tell just by looking at the
-project's Github repository that I failed miserably at making the
-project reproducible. This is because the repository is totally
-unorganized, and I am pretty sure I am the only one who could reproduce
-the results from this project.
-
-But in that failure, I learned a lot about how a reproducible research
-project should be organized. I built this template for my future
-students and for my future self.
-
-R and RStudio are an excellent vehicle for conducting reproducible
-research. You write manuscripts and reports in `.rmarkdown` documents
-that includes code chunks that perform analysis. The code chunks are
-evaluated by `R` and incorporated in the document by the tools in the
-`knitr` package to produce a markdown `.md` document. From there a
-program called `pandoc` converts your markdown document to whatever file
-format you like: PDF (formatted with latex .csl files), html, or
-Microsoft Word. This all happens without the user really knowing what is
-going on, which makes it easy to get started.
 
 Getting Started
 ===============
@@ -73,6 +41,13 @@ the raw data to the analysis to the output to the manuscript so that all
 the steps to generate the manuscript are automated and thus, not subject
 to the inconsistencies that go along with piece-wise data preparation
 and analysis.
+
+Working with R and RStudio
+-------------------------
+
+
+Here are some tutorials and resources:  
+- [Mindy Mallory]([Tutorial](http://mindymallory.github.io/research-project-template/intro-to-r/))  
 
 Generate the Manuscript with One Click
 ======================================
