@@ -1,5 +1,0 @@
-# David
-
-
-
-print("hello world!")

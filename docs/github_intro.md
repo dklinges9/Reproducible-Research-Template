@@ -14,7 +14,7 @@ Hopefully everyone comes away with either some new knowledge/skills, or addition
 - some helpful tips when writing R code that will be part of a dynamic repository (mostly related to relative filepaths: why I discourage using setwd(), how to make file paths relative and include wildcard characters, etc.)
   
 
-**For the Instructor**:  
+**For the instructor (me)**:  
 Windows you will need open:  
 - this markdown file  
 - 2 tabs on GitHub  
@@ -58,11 +58,17 @@ Windows you will need open:
 
 ## Housekeeping
 
+- Recording ok?  
+- if you need to hop off for a few minutes, that's fine  
 - Preferably stay unmuted and keep video on  
 - I'll be sharing screen often  
+- Vilna will be helping with the chat  
+- I will make mistakes, and that's a good thing  
+
 
 
 #### Notes to learners
+- if you're following, give me thumbs up icon or head nod or say yes. If something wasn't clear, that's my fault– please let me know!  
 - Ask questions! I'm perfectly fine with awkward silences if it leads to someone asking their question  
 - I've given a version of this tutorial before but lots of mods, please feedback!  
 - Provide input on what you and your collaborators do differently/better  
