@@ -20,8 +20,13 @@ Download Git Large File Storage:
 https://git-lfs.github.com/
 
 
-Template repository:
-https://github.com/dklinges9/Reproducible-Research-Template
+
+
+GITHUB REPOSITORIES TO CHECK OUT:
+https://github.com/dklinges9/Reproducible-Research-Template  
+
+SoilTemp daily offsets: 
+https://github.com/dklinges9/SoilTemp-daily-offset
 
 
 Other Repos of reference:
@@ -30,21 +35,51 @@ https://ccrcn.shinyapps.io/CoastalCarbonAtlas/
 
 https://github.com/weecology/PortalData
 
-https://github.com/jeffreyhanson/global-protected-areas
-
 https://github.com/carlos-alberto-silva/rGEDI
 
 
 
 
 
-Git cheatsheet:
+GIT CHEATSHEET:
 https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
 
 
-Gitignore:
-https://github.com/github/gitignore
-
+MARKDOWN CHEATSHEET:
+https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 
 Markdown Chrome plug-in:
 https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl
+
+
+GITIGNORE TEMPLATES
+https://github.com/github/gitignore
+
+
+DURING THE BREAK: INSTALL GIT LFS?
+https://git-lfs.github.com/
+https://help.github.com/en/github/managing-large-files/installing-git-large-file-storage
+
+
+
+MICROCLIMATE DATA SOURCES:
+https://docs.google.com/spreadsheets/d/1fVbkRYXmU21g4FV_g9t5_JNL4CzN1SqvT3Esmqq88es/edit?usp=sharing
+
+
+
+GITHUB ACADEMIC DISCOUNTS:
+https://help.github.com/en/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
+
+
+
+TROUBLESHOOTING LINKS:
+
+adding Git to your path/bash profile:
+https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7
+
+another post for just Mac:
+https://superuser.com/questions/324616/how-should-i-set-the-path-variable-on-my-mac-so-the-hombrew-installed-tools-are
+
+another post for just Windows:
+https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/
+

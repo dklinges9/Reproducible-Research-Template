@@ -125,22 +125,22 @@ Benefits of distinct local and remote:
 
 
 **Databases**:  
-[Coastal Carbon Network Data Library](https://github.com/Smithsonian/CCRCN-Data-Library) (also see [RShiny app](https://ccrcn.shinyapps.io/CoastalCarbonAtlas/)  
+[Coastal Carbon Network Data Library](https://github.com/Smithsonian/CCRCN-Data-Library) (also see [RShiny app](https://ccrcn.shinyapps.io/CoastalCarbonAtlas/))  
 
-[ForestGEO ForC](https://github.com/forc-db/ForC) (also see [website](https://forc-db.github.io/) and [RShiny app](https://forc.shinyapps.io/global_data_visualization/)    
+[ForestGEO ForC](https://github.com/forc-db/ForC) (also see [website](https://forc-db.github.io/) and [RShiny app](https://forc.shinyapps.io/global_data_visualization/))    
 
 &nbsp;
 
 **Projects**:  
 [PortalData](https://github.com/weecology/PortalData)  
-[Animal Social Networks](https://github.com/bansallab/asnr/) (also see [website](https://bansallab.github.io/asnr/data.html)   
+[Animal Social Networks](https://github.com/bansallab/asnr/) (also see [website](https://bansallab.github.io/asnr/data.html))   
 [Hanson et al 2020 Global Priority Areas](https://github.com/jeffreyhanson/global-protected-areas)  
 
 &nbsp;
 
 **R Packages**:  
 [RGedi](https://github.com/carlos-alberto-silva/rGEDI)  
-[Mike Kearney's NicheMapR](https://github.com/mrke/NicheMapR) (also see [website](https://mrke.github.io/)  
+[Mike Kearney's NicheMapR](https://github.com/mrke/NicheMapR) (also see [website](https://mrke.github.io/))  
 [prioritizr: conservation prioritization](https://github.com/prioritizr/prioritizr)   
 [ThermStats](https://github.com/rasenior/ThermStats)  
 
@@ -177,10 +177,20 @@ Fork: create a copy of a remote repository that is stored on the remote server
 
 
 #### Clone the Repository
+
+There's a variety of ways you can interact with Git. For demonstrative purposes, I'll start with the GitHub Desktop GUI (graphical user interface), but you can also use Bash scripting via Command Prompt/Terminal, [Git via RStudio](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.0.153&mode=desktop), or the Git GUI.  
+
+
+**Desktop GUI**:  
 - Click "Clone or Download" and the Clipboard icon  
 - Go to GitHub Desktop app, File>Clone Repository  
 - Paste url and designate local location  
 - It may ask you to initialize Git LFS. If you click yes it will prompt you to download  
+
+**Bash**:
+- `git clone insert-github-repo-link-here.git`
+
+
 
 **STOP FOR QUESTIONS HERE**  
 
@@ -219,7 +229,9 @@ If your repo is a massive dump of files or a nested mess of directories, they mi
 Dress for the job you want, not the job you have.  
 
 
-**INSERT LINK TO MEME SOMEONE ELSE'S FILES**  
+![](images/someone_elses_files.png)   
+
+&nbsp;
 
 General principle: **someone with sparse knowledge of the project should be able to open it up and after some brief acquaintance be able to run everything themselves.**  
 _Thinking of projects as packages_  
@@ -234,7 +246,7 @@ my_project
 -- README.md  
 -- ./data 
 -- ./docs  
--- ./scripts
+-- ./scripts  
 -------/01_data_extraction  
 -------/02_data_curation  
 -------/03_data_compilation  
@@ -274,16 +286,29 @@ READMEs will be the first thing that most developers/researchers will look at (h
 `# create a header`
 # Create a header
 
+&nbsp;
+
 `### smaller header`
 ### smaller header  
+
+&nbsp;
+
+`**bold text**`  
+**bold text  
+
+&nbsp;
 
 `add two spaces" "" " `  
 `to create a line break`  
 add two spaces  
 to create a line break
 
+&nbsp;
+
 `[text for your link](https://soiltemp.weebly.com/)`  
 [text for your link](https://soiltemp.weebly.com/)  
+
+&nbsp;
 
 From Chrome users, see [Markdown Preview Plus](https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl). After install, enable "Allow access to file URLs" in Extensions (menu > More tools > Extensions or enter URL chrome://extensions/ instead). Then drag-n-drop a Markdown file onto Chrome and use your favorite editor to edit.  
 
@@ -367,10 +392,13 @@ _A few tips 'n tricks to make coding in a portable repository easier_
 
 The chance of the setwd() command having the desired effect – making the file paths work – for anyone besides its author is exactly 0%.  
 
+![](images/setwd_fire.png)  
+
 _NE MODIFIER PAS LE REPOTOIRE DE TRAVAIL AVEC `SETWD()`. JAMAIS._  
 
-
-**Read in files with flexible syntax**  
+&nbsp;
+&nbsp;
+ 
 
 #### Flexible reference to directories
 
@@ -396,6 +424,16 @@ If you are ever to this action again (and you will), write it as a function. Spe
 &nbsp;
 
 
+
+#### Related Resources
+
+Workflow and Dependency Management:  
+- [Drake](https://github.com/ropensci/drake) is built for R  
+- [here's a more extensive list](https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems) as well  
+
+Continuous Integration and Automation:  
+- this [EFI Tasks Views blog post](https://ecoforecast.org/reproducible-forecasting-workflows/) has some good info on this  
+
 ## Back to Using Git  
 
 #### .gitignore
@@ -404,6 +442,7 @@ https://github.com/github/gitignore
 
 
 **Remove DS_Store files**:  
+_**why wouldn't we want to commit our .Rproj file?**_  
 
 
 ### Other potential content:
@@ -501,6 +540,13 @@ Data standards:
 &nbsp;
 
 ### Watching Repositories  
+
+### Circling back: when to use Git and GitHub
+
+- collaborations (come check out the SoilTemp daily offsets project).... 
+- personal projects: do you ever use more than one machine?  
+- iterative updates and [automatic commit-n-push](https://sarfraznawaz.wordpress.com/2013/12/06/automatic-git-commit-and-push/): especially good for near-term forecasting  
+
 
 
 
