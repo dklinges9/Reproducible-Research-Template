@@ -5,6 +5,15 @@ Introduction to Git and GitHub
 
 _Version control and file management without pulling your hair out_
 
+
+
+## Learner Feedback from 2020-05-29
+
+Following the [UF Data Carpentry class](https://datacarpentry.org/semester-biology/materials/version-control-R/) format would be really effective. Of note is **using RStudio plug in rather than GitHub Desktop**.  
+
+There were a few folks that had done 1-2 intro Git workshops before, and yet haven't quite started using it. For a workshop with collaborators, a **precise set of follow-up actions items** would be effective.  
+
+
 The goals of this tutorial are to demonstrate the potential of using Git and GitHub for reproducible research. This does not entail reviewing the nitty-gritty of Git version control– there's many accessible resources for that– but provides the basic tools and language to effectively collaborate on other's projects, and get started with your own.  
 
 Hopefully everyone comes away with either some new knowledge/skills, or additional inspiration for how to teach your colleagues about the practices you've been implementing.  
@@ -181,6 +190,23 @@ Fork: create a copy of a remote repository that is stored on the remote server
 
 - Top right of webpage: "Fork". This will take a few seconds...  
 
+### Updating a forked repository
+
+If you want to update a forked repository to its “base"...once you have forked a repo, and the original base has new changes:  
+
+- go to the page for your forked version of the repo. click on either the “pull request” or “compare” button:  
+
+![](images/updating_fork_1.png)  
+
+- you’ll see a flow chart with the original version on the left, an arrow pointing left, and then your forked version on the right:  
+![](images/updating_fork_2.png)  
+
+- you want to switch that order: do so by clicking on the box for DigitEnv/name-of-repository, and swapping it for the original base repository. The page will reload. Then press “compare across forks” right above. Then switch the other (left) box around. You should now have the opposite of the original order:
+
+![](images/updating_fork_3.png)  
+
+After this, the merge acts like a commit: write a merge title (e.g. “updating forked version of repo XXX”) then press the green buttons to submit the pull request, and then approve the pull request. Your forked version should now be updated to the original!
+Hopefully that was coherent….this can be done [a little more swiftly via Git in Bash.](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)  
 
 #### Clone the Repository
 
