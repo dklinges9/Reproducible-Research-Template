@@ -11,6 +11,9 @@
 # Example code in package build process
 *-Ex.R
 
+# Ignore sandbox scripts
+scripts/00_sandbox/*.R
+
 # Output files from R CMD build
 /*.tar.gz
 
