@@ -431,6 +431,18 @@ _NE MODIFIER PAS LE REPOTOIRE DE TRAVAIL AVEC `SETWD()`. JAMAIS._
 &nbsp;
 &nbsp;
  
+### Naming and Populating Columns
+
+_What's the purpose of your column? Is it unified by a single unit?_  
+
+_Is the column's contents supposed to be a number, a category, or a description? Careful not to mix these..._  
+
+
+
+**Mixing column contents**: say you have a column that is denoting a category for an observation, such as "male", "female", or "juvenile". You may want to include more information than just the category, but you will be doing yourself a favor if you included that additional info in a new column. For instance, say you're pretty sure this individual was a male, and wanted to jot down your notes why. But these notes in a sex_notes column instead of the same column. This way, you can filter your data to just males (sex == "males") and capture all of the rows you want (but otherwise, you wouldn't capture the row "male (and I know this because of its colors")  
+
+
+
 
 #### Flexible reference to directories
 
@@ -537,6 +549,15 @@ _**MAKE SURE YOUR .GITATTRIBUTES FILE IS STAGED:**_
 
 &nbsp;
 &nbsp;
+
+
+### Pulling LFS files that someone else committed
+
+When you `git pull` after someone has pushed LFS objects, you'll get a file path for the LFS files....but it may not correspond to the file itself. Instead, it may be a file (with the same extension as the original file) that just has a few lines of text saying it's tracked by LFS.  
+
+If this is the case, you'll need to `git lfs pull` to download the original files from LFS. A problem here: this modifies your local files, and therefore Git thinks you've made changes that need to be committed. One "fix" that I got to work (once so far) was staging, committing, then pushing the "modified" files, but then halfway thru the writing of the files, terminate the console run (just close the terminal window). After doing so, when I reopened the git history of the repo, apparently that files weren't "modified", and nothing had been pushed to remote. So....works?  
+
+**Not a huge fan of the LFS ecosystem, need to look into/discuss better approaches.**  
 
 
 ## Challenge
