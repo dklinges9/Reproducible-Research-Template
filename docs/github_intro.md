@@ -467,7 +467,15 @@ If you are ever to this action again (and you will), write it as a function. Spe
 &nbsp;
 &nbsp;
 
+#### Some RStudio formatting options
 
+##### [use headers to fold code sections](https://support.rstudio.com/hc/en-us/articles/200484568-Code-Folding-and-Sections) 
+- *Collapse* — Alt+L  
+- *Expand* — Shift+Alt+L  
+- *Collapse All — Alt+O  
+- *Expand All* — Shift+Alt+O  
+- *Insert Section* — Ctrl+Shift+R (Cmd+Shift+R on the Mac)  
+- *Jump To Section* — Shift+Alt+J  
 
 #### Related Resources
 
