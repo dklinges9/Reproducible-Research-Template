@@ -1,9 +1,9 @@
 
-<<<<<<< HEAD
+
 ## This is the title  
 this will be my next line
 this will end up on the same line
->>>>>>>>>END
+
 =======
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This
 work is licensed under a
@@ -349,4 +349,3 @@ CRC Press.
 Said, Said E, and David A Dickey. 1984. “Testing for Unit Roots in
 Autoregressive-Moving Average Models of Unknown Order.” *Biometrika* 71
 (3). Biometrika Trust: 599–607.
->>>>>>> fc73b0916c405bcccc3b00c0f9a7d44af82c2baa
