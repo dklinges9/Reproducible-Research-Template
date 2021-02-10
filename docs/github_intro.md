@@ -1,10 +1,9 @@
 
 
-Introduction to Git and GitHub
-------------------------------  
+# Introduction to Git and GitHub
+
 
 _Version control and file management without pulling your hair out_
-
 
 
 ## Learner Feedback from 2020-05-29
@@ -13,15 +12,20 @@ Following the [UF Data Carpentry class](https://datacarpentry.org/semester-biolo
 
 There were a few folks that had done 1-2 intro Git workshops before, and yet haven't quite started using it. For a workshop with collaborators, a **precise set of follow-up actions items** would be effective.  
 
+---
 
 The goals of this tutorial are to demonstrate the potential of using Git and GitHub for reproducible research. This does not entail reviewing the nitty-gritty of Git version control– there's many accessible resources for that– but provides the basic tools and language to effectively collaborate on other's projects, and get started with your own.  
 
 Hopefully everyone comes away with either some new knowledge/skills, or additional inspiration for how to teach your colleagues about the practices you've been implementing.  
 
+---
+
 - how to structure a repository in an intuitive fashion that makes access easy for others (e.g. how many/what subdirectories to have, what their contents will be, directory naming conventions, etc.
 - some suggestions on using READMEs to document directories and files (a little bit of overview on Markdown)
 - some helpful tips when writing R code that will be part of a dynamic repository (mostly related to relative filepaths: why I discourage using setwd(), how to make file paths relative and include wildcard characters, etc.)
   
+
+---
 
 **For the instructor (me)**:  
 Windows you will need open:  
@@ -34,8 +38,11 @@ Windows you will need open:
 &nbsp;
 &nbsp;
 
+---
+
 ## Agenda
 - Intros, housekeeping, troubleshooting, etc. (10 mins)  
+- Why Reproducibility and Version Control (5 mins)  
 - Why GitHub for reproducible research (5 mins)  
 - GH repository structure (5 mins)  
 - Git basics (15 mins)
@@ -51,6 +58,8 @@ Windows you will need open:
 - Git basics: (10 mins) 
 	commit 
 - BREAK (15 mins)  
+---
+
 - coding for reproducibility (15 mins)  
 	- R projects
 	- Script architecture  
@@ -64,6 +73,10 @@ Windows you will need open:
 - helping with SoilTemp (15 mins)   
 - GH perks: academic discounts, etc. (10 mins)  
 
+_Modules under development:_  
+- Clean data structuring  
+
+---
 
 ## Housekeeping
 
@@ -74,6 +87,7 @@ Windows you will need open:
 - Vilna will be helping with the chat  
 - I will make mistakes, and that's a good thing  
 
+---
 
 
 #### Notes to learners
@@ -87,6 +101,8 @@ Windows you will need open:
 &nbsp;
 &nbsp;
 
+---
+
 ## Git and Reproducible Workflows: Intro (_10 mins_)
 _why use version control? Developing software and managing data so that others can access your work easily and you'll remember what you've done_  
 
@@ -95,16 +111,39 @@ _why use version control? Developing software and managing data so that others c
 - using Markdown to document code and files: the value of READMEs
 - working with large files
 
+---
+
+### What is reproducibility and why?  
+
+
+What: We should think of our projects as self-contained packages (much like an R package) that can be downloaded/imported by others and, for the most part, understood by them too. "Ideally a collaborator should be able to run the entire project without changing any code or files" ([source](https://ecoforecast.org/reproducible-forecasting-workflows/)). Working towards FAIR principles (Wilkinson et al. 2016)  
+
+Who: for others, but oftentimes for ourselves. 
+
+Why: 
+- Well, for six months from now when you need to open up your code again from a paper back from review, and you haven't thought about the project since. 
+- But also, it seems the field is (luckily) moving towards encouraging (and maybe soon mandating) that the whole project workflow is published. As in, we've long been accustomed to publishing our papers (interpretation of the findings) and our getting better at publishing our data (the findings themselves), the next step is publishing our code (how we connected the findings to the interpretation).  
+
+---
+
+### Why version control?
+
+**HEAD TO GOOGLE SLIDES HERE**  
 
 ### Why GitHub?
 
 - the benefit of Dropbox and GitHub over external drive is that files can be shared over Dropbox and GitHub but I can't send files directly from an external drive. So external drive good for processing data on my own, but not for collaboration  
 
+---
+
 - the benefit of GitHub over Dropbox is:  
 1) that you can keep a history of your changes to the files (that's what version control is). Think of Microsoft Word's track changes, but for data and code. This is helpful for documenting progress, and if something is screwed up you can revert to a previous version of data/code without the need to remember what exact changes you made  
-&nbsp;
+
 2) with GitHub, files talk to each other better than on Dropbox. On Dropbox you need to either manually drag 'n drop each file into your online Dropbox, which can take a lot of time, or have everything stored in a folder that is on Dropbox– RStudio doesn't like this latter option because Dropbox constantly tries to refresh the folder by grabbing files and looking at them, and RStudio gets angry because it wants to be using the files at the same time  
 &nbsp;
+
+---
+
 3) GitHub is much better for display online than dropbox. Markdown is good to generate reports with figures and code....GitHub is set up so that Markdown files are displayed automatically. See Rebecca Senior's ThermStats and the Coastal Carbon database that I managed for the Smithsonian– the text and figures displayed when you scroll down on either of them are put together on a Markdown. I like this because one of my collaborators can access the GitHub webpage, get an immediate refresher of what this project is, and jump right into contributing. You can't display like this on Dropbox.  
 &nbsp;
 4) You'll be more prepared for navigating (and deploying) software packages.  Many R and Python packages have developer versions hosted on GH 
@@ -115,7 +154,15 @@ _a brief overview of how Git works_
 
 ### The Git Workflow (_5 mins_)  
 
-**HEAD TO GOOGLE SLIDES HERE**  
+_On Google Slides_  
+
+---
+
+### Resources
+
+[Carpentries Git tutorial](https://swcarpentry.github.io/git-novice/)  
+https://happygitwithr.com/rstudio-git-github.html
+
 
 Like Drive or Dropbox...but with a specific system for uploading/downloading files.  
 
@@ -128,6 +175,8 @@ Benefits of distinct local and remote:
 
 &nbsp;
 &nbsp;
+
+---
 
 #### Navigating GitHub Repository Website (_5 mins_)  
 
@@ -237,16 +286,24 @@ There's a variety of ways you can interact with Git. For demonstrative purposes,
 &nbsp;
 &nbsp;
 
-## Structuring Repositories for Reproducible Workflows (_10 mins_)  
+---
+
+## Structuring Repositories for Reproducible Workflows (_15 mins_)  
 _Good practices of where to put files and why_
   
 _sources:_  
-- [EFI Task Views](https://ecoforecast.org/introducing-efi-task-views/)    
+- [EFI Task Views: Reproducible Forecasting Workflows](https://ecoforecast.org/reproducible-forecasting-workflows/)    
 - [Python Guide Structure](https://docs.python-guide.org/writing/structure/)  
 - [Project Workflows](https://www.r-bloggers.com/%F0%9F%93%81-project-oriented-workflow/)  
+- [What They Forgot to Teach You About R: a textbook](https://rstats.wtf/)  
 
-&nbsp;
-&nbsp;
+
+### Items
+- What is reproducibility and why?  
+- Organizing files for reproducibility  
+- Organizing R code for reproducibility  
+
+---
 
 When a potential user or contributor lands on your repository’s page, they see a few things:
 
@@ -271,6 +328,18 @@ _Thinking of projects as packages_
 &nbsp;
 &nbsp;
 
+---
+
+### Working directories
+
+To keep our projects self-contained, we want a folder that holds all the necessary stuff, but not the unnecessary stuff  
+
+Oftentimes our code relies on files stored on our computer (e.g. data) and we need the computer to know where to look  
+
+Designating a working directory achieves these things.  
+
+---
+
 #### Proposed Project Template 
 
 my_project  
@@ -279,6 +348,7 @@ my_project
 -- ./data 
 -- ./docs  
 -- ./scripts  
+-------/00_source  
 -------/01_data_extraction  
 -------/02_data_curation  
 -------/03_data_compilation  
@@ -288,13 +358,41 @@ my_project
 -- ./reports  
 -- ./analysis-outputs  
 
+---
+
+**Licences**  
+
+not always necessary for research, but good to read up on them. Here's some good resources:  
+
+[Zenodo license fact sheet](https://zenodo.org/record/840652/files/Open%20Science.pdf?download=1)  
+[Figshare license history](https://help.figshare.com/article/copyright-and-license-policy)  
+[Dryad license explanation](https://blog.datadryad.org/2011/10/05/why-does-dryad-use-cc0/)  
+
+**Alternatives:**  
+
+
+/src
+
+data/src  
+data/raw  
+
+
 (_drop links to repos again if desired_)  
 
-Not the only structure, but I use because:  
+Not the only structure, but generally I use this.  
+
+_Pros_:  
 - easier to drag and drop data directories into new projects  
-- organized by file type: there will never be a .csv in the scripts folder  
+- organized by file type: there will never be a .csv in the scripts folder. I think this is easy to find files  
+- easier to .gitignore or git-lfs large files if they are all stored in the same directory  
 - simple, makes it easier for someone to find readme  
-- however, could be more modular  
+
+_Cons_:  
+- data is often intrinsically linked to code. Naturally, certain data and code files should be sorted together.  
+- could be more modular  
+- for especially large projects, impossible to attempt to sort through a single directory that stores ALL of the code or ALL of the data without linking to each other  
+
+**Main takeaway**: there is no single template to fit all projects or needs. What we should strive to do is structure our projects in a way that is intuitive to a large audience but also familiar to a more specialized audience.  
 
 
 &nbsp;
@@ -326,7 +424,7 @@ READMEs will be the first thing that most developers/researchers will look at (h
 &nbsp;
 
 `**bold text**`  
-**bold text  
+**bold text**  
 
 &nbsp;
 
@@ -384,11 +482,11 @@ While we're gone, could install [Git LFS](https://git-lfs.github.com/)
 &nbsp;
 &nbsp;
 
+--- 
+
 ## Reproducible R scripts
 
-_sources:_  
-[Jenny Brown](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)  
-
+---
 
 #### R Scripts as part of a Project Ecosystem
 _Thinking of projects as packages_   
@@ -400,13 +498,28 @@ _Thinking of projects as packages_
 	- it will install/load only what is needed (for data and packages)  
 
 
+_Break your scripts up into manageable chunks, which are not necessarily in the order in which you wrote them._  
+
 Not just good for GitHub....not just good for collaborators....more portable for future self.  
+
+---
 
 &nbsp;
 
 #### Workflow versus Product  
 **Workflow**: personal habitats and accessories  
+- The editor you use to write your R code.  
+- The name of your home directory.  
+- The R code you ran before lunch.  
+
 **Product**: the raw data and the code needed to get your results  
+- The raw data.
+- The R code someone needs to run on your raw data to get your results, including the explicit library() calls to load necessary packages.  
+
+_sources:_  
+[Jenny Brown](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) 
+
+---
 
 &nbsp;
 &nbsp;
@@ -416,9 +529,11 @@ Not just good for GitHub....not just good for collaborators....more portable for
 ### Transitioning to RStudio
 _A few tips 'n tricks to make coding in a portable repository easier_  
 
-**Navigate to RStudio**  
-**Set up an R Project**  
+**Head over to RStudio**  
+**Create a New RStudio Project**  
+**Navigate to the curation script template**  
 
+---
 
 #### Why there is a 10th circle of hell for those that use `setwd()`
 
@@ -430,17 +545,6 @@ _NE MODIFIER PAS LE REPOTOIRE DE TRAVAIL AVEC `SETWD()`. JAMAIS._
 
 &nbsp;
 &nbsp;
- 
-### Naming and Populating Columns
-
-_What's the purpose of your column? Is it unified by a single unit?_  
-
-_Is the column's contents supposed to be a number, a category, or a description? Careful not to mix these..._  
-
-
-
-**Mixing column contents**: say you have a column that is denoting a category for an observation, such as "male", "female", or "juvenile". You may want to include more information than just the category, but you will be doing yourself a favor if you included that additional info in a new column. For instance, say you're pretty sure this individual was a male, and wanted to jot down your notes why. But these notes in a sex_notes column instead of the same column. This way, you can filter your data to just males (sex == "males") and capture all of the rows you want (but otherwise, you wouldn't capture the row "male (and I know this because of its colors")  
-
 
 
 
@@ -458,6 +562,7 @@ source(Sys.glob("scripts/*_data_selection/hello_world.R"))
 Same goes with reading in data. We can have multiple wildcards too:  
 read.csv(Sys.glob("data/enviro_*eters/data_sources/VanDenHoogen_*.csv"))  
 
+---
 
 #### Modularity: producing functions
 
@@ -466,6 +571,8 @@ If you are ever to this action again (and you will), write it as a function. Spe
 &nbsp;
 &nbsp;
 &nbsp;
+
+---
 
 #### Some RStudio formatting options
 
@@ -476,6 +583,58 @@ If you are ever to this action again (and you will), write it as a function. Spe
 - *Expand All* — Shift+Alt+O  
 - *Insert Section* — Ctrl+Shift+R (Cmd+Shift+R on the Mac)  
 - *Jump To Section* — Shift+Alt+J  
+
+---
+
+
+### Saving objects to files, not workspaces
+
+For instance:  
+
+```
+library(raster)
+
+# Load big raster into R
+big_raster <- raster("data/mybignastyrasty.tif")
+
+# Do operation on raster that takes forever....
+raster_2 <- big_raster_operation(big_raster, fun = massive)
+
+# wait...
+# wait...
+# wait...
+
+# FINALLY. That took so long!! I want to save workspace so I don't have to do again!!
+
+```
+
+---
+
+```
+library(raster)
+
+# Load big raster into R
+big_raster <- raster("data/input/mybignastyrasty.tif")
+
+# Do operation on raster that takes forever....
+raster_2 <- big_raster_operation(big_raster, fun = massive)
+
+# wait...
+# wait...
+# wait...
+
+# FINALLY. That took so long!! To avoid doing it again, let's save intermediate product as RDS file
+saveRDS(raster_2, "data/intermediate/raster_2.rds") # longer runtime, but smaller object
+write_rds(raster_2, "data/intermediate/raster_2.rds") # shorter runtime, larger object
+
+```
+
+---
+
+### Using Packrat for package management 
+
+_Need to develop this content._  
+
 
 #### Related Resources
 
@@ -568,6 +727,24 @@ If this is the case, you'll need to `git lfs pull` to download the original file
 **Not a huge fan of the LFS ecosystem, need to look into/discuss better approaches.**  
 
 
+### Alternatives to Git for file version control
+
+
+Learning Git is hard. It's not for everyone, which is understandable. If we are solely reliant upon Git for file version control, and GitHub for storing/sharing our projects, we may exclude valuable collaborators who otherwise could contribute substantially.  
+
+**Sometimes we can be flexible in the platforms we use, or how we code, to accommodate out collaborators.**  
+
+
+`googlesheets4` package:  
+
+What if you have a collaborative data file, but don't need to collaborate on the code? This is a helpful package.  
+
+I used this recently for when a collaborator wasn't as comfortable with Git, and wanted to add data to a Google Sheet. No problem! I can automatically download the most recent version of the data on Sheets (much like `git pull`)  
+
+**Demonstrate sample R script from vert strat meta**  
+
+
+
 ## Challenge
 
 Contributing to SoilTemp: _because the real reason I organized this was to put you all to work!_  
@@ -616,5 +793,23 @@ Data standards:
 
 
 
+
+## Clean Data Structuring
+
+### Tall vs Wide data
+
+
+`pivot_longer` and `pivot_wider`  
+
+
+### Naming and Populating Columns
+
+_What's the purpose of your column? Is it unified by a single unit?_  
+
+_Is the column's contents supposed to be a number, a category, or a description? Careful not to mix these..._  
+
+
+
+**Mixing column contents**: say you have a column that is denoting a category for an observation, such as "male", "female", or "juvenile". You may want to include more information than just the category, but you will be doing yourself a favor if you included that additional info in a new column. For instance, say you're pretty sure this individual was a male, and wanted to jot down your notes why. But these notes in a sex_notes column instead of the same column. This way, you can filter your data to just males (sex == "males") and capture all of the rows you want (but otherwise, you wouldn't capture the row "male (and I know this because of its colors")  
 
 

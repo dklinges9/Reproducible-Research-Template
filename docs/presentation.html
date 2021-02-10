@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Module: Designing Reproducible Research Projects (<em>for R Coders</em>)</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="file:///Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/landslide/themes/default/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="file:///Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/landslide/themes/default/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="file:///Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/landslide/themes/default/js/slides.js"></script>
+    
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-1">
+          <div class="inner">
+            
+            <header><h1>Module: Designing Reproducible Research Projects (<em>for R Coders</em>)</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-2">
+          <div class="inner">
+            
+            <header><h3>Agenda</h3></header>
+            
+            
+            <section><ul>
+<li>What is reproducibility, what is version control, and why?  </li>
+<li>Organizing files for reproducibility  </li>
+<li>Organizing R code for reproducibility  </li>
+</ul>
+<p>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</p>
+<h3><em>Resources used to develop this tutorial:</em></h3>
+<p><a href="https://ecoforecast.org/reproducible-forecasting-workflows/">EFI Task Views: Reproducible Forecasting Workflows</a>  </p>
+<p><a href="https://datacarpentry.org/R-ecology-lesson/index.html">Data Carpentries: Data Analysis in R for Ecologists</a>  </p>
+<p><a href="https://rstats.wtf/">What They Forgot to Teach You About R: a textbook</a>  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-3">
+          <div class="inner">
+            
+            <header><h2>Opening</h2></header>
+            
+            
+            <section><p>Share GitHub url<br />
+https://github.com/dklinges9/Reproducible-Research-Template  </p>
+<p>Share zip folder  </p>
+<p>Context: this is part of a workshop on Git and GitHub that I've led before, and I want to improve.
+Based on the Slack poll, I tried to pull out the parts that would have novel content, but also be comfortable (not over heads). Hopefully everyone will learning something, including me. Provide feedback! I'll pause for questions and hope to have time to discuss at end.  </p>
+<p>The workshop is on Git, but can't teach Git and GitHub in 45 minutes. So I want to start with a quick pitch on what version control is.  </p>
+<p>Slides:<br />
+18 - 
+40 - </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-4">
+          <div class="inner">
+            
+            <header><h2>What is reproducibility and why?</h2></header>
+            
+            
+            <section><p>What: projects as self-contained packages (much like an R package). Working towards FAIR principles (Wilkinson et al. 2016)  </p>
+<p>Who: for others, but oftentimes for future self. </p>
+<p>Why: <br />
+- 6 months from now when paper comes back from review and you don't remember how your code works.<br />
+- publishing paper + data + code  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-5">
+          <div class="inner">
+            
+            <header><h1>Organizing files for reproducibility</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-6">
+          <div class="inner">
+            
+            
+            <section><p><img src="file:///Users/David/Documents/GitHub/Teaching/Reproducible-Research-Template/docs/images/figshare.png" alt="drawing" width="300"/></p>
+<p>&nbsp;</p>
+<p><img src="file:///Users/David/Documents/GitHub/Teaching/Reproducible-Research-Template/docs/images/dryad.png" alt="drawing" width="300"/></p>
+<p>&nbsp;</p>
+<p><img src="file:///Users/David/Documents/GitHub/Teaching/Reproducible-Research-Template/docs/images/zenodo.jpeg" alt="drawing" width="300"/></p>
+<p>&nbsp;</p>
+<p><img src="file:///Users/David/Documents/GitHub/Teaching/Reproducible-Research-Template/docs/images/github.png" alt="drawing" width="300"/></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-7">
+          <div class="inner">
+            
+            
+            <section><p>When a potential user or contributor lands on your repository’s page, they see a few things:</p>
+<ul>
+<li>Project Name  </li>
+<li>Project Description  </li>
+<li>Bunch O’ Files  </li>
+</ul>
+<p><img src="file:///Users/David/Documents/GitHub/Teaching/Reproducible-Research-Template/docs/images/someone_elses_files.png" alt="drawing" width="300"/></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-8">
+          <div class="inner">
+            
+            
+            <section><p>&nbsp;</p>
+<p>General principle: <strong>someone with sparse knowledge of the project should be able to open it up and after some brief acquaintance be able to run everything themselves.</strong><br />
+<em>Thinking of projects as packages</em>  </p>
+<p>&nbsp;
+&nbsp;</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-9">
+          <div class="inner">
+            
+            <header><h3>Working directories</h3></header>
+            
+            
+            <section><p>To keep our projects self-contained, we want a folder that holds all the necessary stuff, but not the unnecessary stuff  </p>
+<p>Oftentimes our code relies on files stored on our computer (e.g. data) and we need the computer to know where to look  </p>
+<p>Designating a working directory achieves these things.  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-10">
+          <div class="inner">
+            
+            <header><h4>Proposed Project Template</h4></header>
+            
+            
+            <section><p>my_project<br />
+|<br />
+-- README.md<br />
+-- ./data<br />
+-------/input<br />
+-------/intermediate<br />
+-------/output<br />
+-- ./docs<br />
+-- ./figures<br />
+-- ./reports<br />
+-- ./scripts<br />
+-------/00_source<br />
+-------/01_data_extraction<br />
+-------/02_data_curation<br />
+-------/03_data_compilation<br />
+-------/...<br />
+-------/07_analysis<br />
+-- ./analysis-outputs  </p>
+<p><img src="file:///Users/David/Documents/GitHub/Teaching/Reproducible-Research-Template/docs/images/file_structure.png" alt="drawing" width="400"/></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-11">
+          <div class="inner">
+            
+            
+            <section><p><strong>Alternatives</strong></p>
+<p>my_project<br />
+-- ./src  </p>
+<p>my_project  </p>
+<p>-- ./data<br />
+-------/src<br />
+-------/raw   </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-12">
+          <div class="inner">
+            
+            
+            <section><p>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</p>
+<p><em>What project structures do you like?</em>  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-13">
+          <div class="inner">
+            
+            
+            <section><p><strong>Licences</strong>  </p>
+<p>not always necessary for research, but good to read up on them. Here's some good resources:  </p>
+<p><a href="https://zenodo.org/record/840652/files/Open%20Science.pdf?download=1">Zenodo license fact sheet</a><br />
+<a href="https://help.figshare.com/article/copyright-and-license-policy">Figshare license history</a><br />
+<a href="https://blog.datadryad.org/2011/10/05/why-does-dryad-use-cc0/">Dryad license explanation</a>  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-14">
+          <div class="inner">
+            
+            <header><h1>Reproducible R scripts</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-15">
+          <div class="inner">
+            
+            <header><h4>R Scripts as part of a Project Ecosystem</h4></header>
+            
+            
+            <section><p><em>Thinking of projects as packages</em>   </p>
+<ul>
+<li>scripts should be organized with awareness of your project space: self-contained projects as folders  </li>
+<li>every script assumes that:<ul>
+<li>the working directory will be set to this folder  </li>
+<li>there will be nothing already loaded in the R environment  </li>
+<li>it will install/load only what is needed (for data and packages)  </li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-16">
+          <div class="inner">
+            
+            <header><h4>Workflow versus Product</h4></header>
+            
+            
+            <section><p><strong>Workflow</strong>: personal habitats and accessories<br />
+- The editor you use to write your R code.<br />
+- The name of your home directory.<br />
+- The R code you ran before lunch.  </p>
+<p><strong>Product</strong>: the raw data and the code needed to get your results<br />
+- The raw data.
+- The R code someone needs to run on your raw data to get your results, including the explicit library() calls to load necessary packages.  </p>
+<p>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</p>
+<p><em>sources:</em><br />
+<a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Jenny Brown</a> </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-17">
+          <div class="inner">
+            
+            <header><h3>Transitioning to RStudio</h3></header>
+            
+            
+            <section><p><em>A few tips 'n tricks to make coding in a portable repository easier</em>  </p>
+<p><strong>Head over to RStudio</strong><br />
+<strong>Create a New RStudio Project</strong><br />
+<strong>Navigate to the curation script template</strong>  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-18">
+          <div class="inner">
+            
+            <header><h3>Alternatives to Git for FVC</h3></header>
+            
+            
+            <section><p>Learning Git is hard. It's not for everyone, which is understandable. If we are solely reliant upon Git for file version control, and GitHub for storing/sharing our projects, we may exclude valuable collaborators who otherwise could contribute substantially.  </p>
+<p><strong>Sometimes we can be flexible in the platforms we use, or how we code, to accommodate out collaborators.</strong>  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: reproducible_research_slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-19">
+          <div class="inner">
+            
+            
+            <section><p><code>googlesheets4</code> package:  </p>
+<p>What if you have a collaborative data file, but don't need to collaborate on the code? This is a helpful package.  </p>
+<p>I used this recently for when a collaborator wasn't as comfortable with Git, and wanted to add data to a Google Sheet. No problem! I can automatically download the most recent version of the data on Sheets (much like <code>git pull</code>)  </p>
+<p><strong>Demonstrate sample R script from vert strat meta</strong>  </p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="reproducible_research_slides.md">reproducible_research_slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/19
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Module: Designing Reproducible Research Projects (<em>for R Coders</em>)</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">-</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-3" class="sub">
+          <th><a href="#slide3">Opening</a></th>
+          <td><a href="#slide3">3</a></td>
+        </tr>
+        
+        <tr id="toc-row-4" class="sub">
+          <th><a href="#slide4">What is reproducibility and why?</a></th>
+          <td><a href="#slide4">4</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Organizing files for reproducibility</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">-</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">-</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">-</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">-</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">-</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">-</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">-</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">-</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Reproducible R scripts</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">-</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">-</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">-</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">-</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">-</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
