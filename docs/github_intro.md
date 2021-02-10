@@ -12,6 +12,24 @@ Following the [UF Data Carpentry class](https://datacarpentry.org/semester-biolo
 
 There were a few folks that had done 1-2 intro Git workshops before, and yet haven't quite started using it. For a workshop with collaborators, a **precise set of follow-up actions items** would be effective.  
 
+
+## Learner Feedback from 2021-02-10
+(_Only provided the intro Google Slides, structuring reproducible projects, and R script tips parts_)  
+
+Liz Evans asked a _very good question_: she usually has all of her code in one script. What's the point of having all of these multiple scripts for our code, why not just one?  
+
+It's a matter of preference! But here's a pitch for having multiple scripts:  
+- I'm your collaborator, you sent your project to me and asked for feedback on the modeling. Do I want to open up "research_code.R" and dig through the 690 lines of code to find the right section, or do I want to open up the script call "build_glm.r"?  
+- I use the same dataset for multiple projects, and for each project I need to perform the same data curation/cleaning. Pretty easy to just copy + paste my "data_cleaning.R" script into another project, less easy to dig through my one script to find the right section  
+- Carly: I use git for file version control. I made some changes to my analysis and generating my figures, but I want to keep those changes (commits) separate in my change log history. It's easier to do this if analysis and figure generation are in different scripts, harder if they're in the same script.  
+- From a matter of principle, a script should have a set of inputs and a set of outputs. Oftentimes our projects have multiple intermediate products, such as a cleaned, analysis-ready datafile. We want a .csv of that file for future use. But it's not ideal to bury that write_csv() command in the middle of a script. Rather, we should end our script after write_csv(), and have new script(s) for steps after that.  
+
+Miguel: important to note that GitHub can have both public and private repositories, because you may want one or the other for particular projects/products  
+
+Both for those who were new to the practice and to those who had heard of it before, folks were appreciative of mentioning the headers in RStudio!  
+
+_note from self:_ important to note that with Git, ultimately it's all about habitat building. For simple projects, it doesn't feel necessary, but for complex project where you would appreciate it, it's hard to implement if you're not familiar. So build that right habits starting with the simple projects!  
+
 ---
 
 The goals of this tutorial are to demonstrate the potential of using Git and GitHub for reproducible research. This does not entail reviewing the nitty-gritty of Git version control– there's many accessible resources for that– but provides the basic tools and language to effectively collaborate on other's projects, and get started with your own.  
