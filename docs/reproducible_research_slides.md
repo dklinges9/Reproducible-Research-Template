@@ -175,7 +175,7 @@ _Thinking of projects as packages_
 - The R code you ran before lunch.  
 
 **Product**: the raw data and the code needed to get your results  
-- The raw data.
+- The raw data.  
 - The R code someone needs to run on your raw data to get your results, including the explicit library() calls to load necessary packages.  
 
 &nbsp;
