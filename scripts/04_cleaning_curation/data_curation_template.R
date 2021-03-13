@@ -3,7 +3,7 @@
 ## This script provides a template of organization for reproducible workflows
 
 ## BAD BAD BAD BAD BAD
-# setwd("Users/David/Desktop")
+setwd("Users/David/Desktop")
 
 ## 1. Workspace prep ##############
 
@@ -20,7 +20,7 @@ library(lubridate)
 library(raster)
 
 ## Read in data
-iris_raw <- read_csv("data/raw_data/iris.csv") # Pretty standard
+iris_raw <- read.csv("data/raw_data/iris.csv") # Pretty standard
 iris_raw <- read_csv(Sys.glob("*/*/iris*.csv")) # Throw in wildcards
 # Harder to read, but possibly useful if you have tons of folders
 iris_raw <- read_csv(list.files(recursive = TRUE)[ # list all files in my project
